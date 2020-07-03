@@ -1,0 +1,17 @@
+C:\Users\trann\source\repos\MiniShop\MiniShop\obj\Debug\netcoreapp3.1\staticwebassets\MiniShop.StaticWebAssets.Manifest.cache
+C:\Users\trann\source\repos\MiniShop\MiniShop\obj\Debug\netcoreapp3.1\staticwebassets\MiniShop.StaticWebAssets.xml
+C:\Users\trann\source\repos\MiniShop\MiniShop\obj\Debug\netcoreapp3.1\MiniShop.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\trann\source\repos\MiniShop\MiniShop\obj\Debug\netcoreapp3.1\MiniShop.AssemblyInfoInputs.cache
+C:\Users\trann\source\repos\MiniShop\MiniShop\obj\Debug\netcoreapp3.1\MiniShop.AssemblyInfo.cs
+C:\Users\trann\source\repos\MiniShop\MiniShop\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\trann\source\repos\MiniShop\MiniShop\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\trann\source\repos\MiniShop\MiniShop\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+C:\Users\trann\source\repos\MiniShop\MiniShop\bin\Debug\netcoreapp3.1\MiniShop.exe
+C:\Users\trann\source\repos\MiniShop\MiniShop\bin\Debug\netcoreapp3.1\MiniShop.deps.json
+C:\Users\trann\source\repos\MiniShop\MiniShop\bin\Debug\netcoreapp3.1\MiniShop.runtimeconfig.json
+C:\Users\trann\source\repos\MiniShop\MiniShop\bin\Debug\netcoreapp3.1\MiniShop.runtimeconfig.dev.json
+C:\Users\trann\source\repos\MiniShop\MiniShop\bin\Debug\netcoreapp3.1\MiniShop.dll
+C:\Users\trann\source\repos\MiniShop\MiniShop\bin\Debug\netcoreapp3.1\MiniShop.pdb
+C:\Users\trann\source\repos\MiniShop\MiniShop\obj\Debug\netcoreapp3.1\MiniShop.RazorTargetAssemblyInfo.cache
+C:\Users\trann\source\repos\MiniShop\MiniShop\obj\Debug\netcoreapp3.1\MiniShop.dll
+C:\Users\trann\source\repos\MiniShop\MiniShop\obj\Debug\netcoreapp3.1\MiniShop.pdb
