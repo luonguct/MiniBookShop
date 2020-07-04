@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace MiniShop.Data.Migrations
+namespace MiniShop.Api.Data.Migrations
 {
     public partial class InitDatabase : Migration
     {

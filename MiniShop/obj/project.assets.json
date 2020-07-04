@@ -8190,9 +8190,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\trann\\source\\repos\\MiniShop\\MiniShop\\MiniShop.csproj",
-      "projectName": "MiniShop",
-      "projectPath": "C:\\Users\\trann\\source\\repos\\MiniShop\\MiniShop\\MiniShop.csproj",
+      "projectUniqueName": "C:\\Users\\trann\\source\\repos\\MiniShop\\MiniShop\\MiniShop.API.csproj",
+      "projectName": "MiniShop.API",
+      "projectPath": "C:\\Users\\trann\\source\\repos\\MiniShop\\MiniShop\\MiniShop.API.csproj",
       "packagesPath": "C:\\Users\\trann\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\trann\\source\\repos\\MiniShop\\MiniShop\\obj\\",
       "projectStyle": "PackageReference",

@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using MiniShop.Data.DbContext;
+using MiniShop.Api.Data.DbContext;
 
-namespace MiniShop
+namespace MiniShop.Api
 {
     public class Startup
     {

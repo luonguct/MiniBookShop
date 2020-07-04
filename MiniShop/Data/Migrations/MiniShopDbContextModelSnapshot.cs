@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using MiniShop.Data.DbContext;
+using MiniShop.Api.Data.DbContext;
 
-namespace MiniShop.Data.Migrations
+namespace MiniShop.Api.Data.Migrations
 {
     [DbContext(typeof(MiniShopDbContext))]
     partial class MiniShopDbContextModelSnapshot : ModelSnapshot

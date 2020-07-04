@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29403.142
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniShop", "MiniShop\MiniShop.csproj", "{5A86DB49-8D0B-4579-8CFE-DE3D3C757893}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiniShop.Api", "MiniShop\MiniShop.Api.csproj", "{5A86DB49-8D0B-4579-8CFE-DE3D3C757893}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0A92A6E6-EC01-433B-BE49-0CD74FC27D5A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{6EED5D6B-9DC2-4417-9FF1-6AAAAA60E1BF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "angular-app", "angular-app", "{5C1DF678-5F56-48C8-AB1E-C0784D9CE15D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,6 +24,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5A86DB49-8D0B-4579-8CFE-DE3D3C757893} = {0A92A6E6-EC01-433B-BE49-0CD74FC27D5A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5F595F92-2B89-4143-8523-9C4E50711CE3}

@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MiniShop.Data.Entities
+namespace MiniShop.Api.Data.Entities
 {
     [Table("Authors")]
     public class Author

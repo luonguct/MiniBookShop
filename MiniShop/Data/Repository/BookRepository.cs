@@ -1,10 +1,6 @@
-﻿using MiniShop.Data.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using MiniShop.Api.Core.Interfaces;
 
-namespace MiniShop.Data.Repository
+namespace MiniShop.Api.Data.Repository
 {
     public class BookRepository : IBookRepository
     {

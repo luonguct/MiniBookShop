@@ -1,13 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MiniShop.Data.Entities;
+using MiniShop.Api.Data.Entities;
 
-namespace MiniShop.Data.DbContext
+namespace MiniShop.Api.Data.DbContext
 {
     public class MiniShopDbContext : Microsoft.EntityFrameworkCore.DbContext
     {
         public MiniShopDbContext(DbContextOptions<MiniShopDbContext> options) : base(options)
         {
-
         }
 
         public DbSet<Book> Books { get; set; }
