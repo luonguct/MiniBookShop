@@ -14,7 +14,6 @@ C:\Users\trann\source\repos\MiniShop\MiniShop\bin\Debug\netcoreapp3.1\MiniShop.p
 C:\Users\trann\source\repos\MiniShop\MiniShop\obj\Debug\netcoreapp3.1\MiniShop.RazorTargetAssemblyInfo.cache
 C:\Users\trann\source\repos\MiniShop\MiniShop\obj\Debug\netcoreapp3.1\MiniShop.dll
 C:\Users\trann\source\repos\MiniShop\MiniShop\obj\Debug\netcoreapp3.1\MiniShop.pdb
-C:\Users\trann\source\repos\MiniShop\MiniShop\obj\Debug\netcoreapp3.1\MiniShop.csprojAssemblyReference.cache
 C:\Users\trann\source\repos\MiniShop\MiniShop\obj\Debug\netcoreapp3.1\MiniShop.csproj.CopyComplete
 C:\Users\trann\source\repos\MiniShop\MiniShop\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
 C:\Users\trann\source\repos\MiniShop\MiniShop\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
@@ -107,4 +106,6 @@ C:\Users\trann\source\repos\MiniShop\MiniShop\bin\Debug\netcoreapp3.1\runtimes\w
 C:\Users\trann\source\repos\MiniShop\MiniShop\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\trann\source\repos\MiniShop\MiniShop\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\trann\source\repos\MiniShop\MiniShop\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\trann\source\repos\MiniShop\MiniShop\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\trann\source\repos\MiniShop\MiniShop\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
 C:\Users\trann\source\repos\MiniShop\MiniShop\obj\Debug\netcoreapp3.1\MiniShop.MvcApplicationPartsAssemblyInfo.cache
