@@ -1,4 +1,4 @@
-﻿namespace MiniShop.Api.Core.Interfaces
+﻿namespace MiniShop.Core.Interfaces
 {
     public interface IAuthorRepository
     {

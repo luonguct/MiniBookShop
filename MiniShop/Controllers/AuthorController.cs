@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using MiniShop.Api.Data.DbContext;
-using MiniShop.Api.Data.Entities;
+using Minishop.Infrastructure.Data;
+using MiniShop.Core.Entities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

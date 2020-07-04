@@ -1,9 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
-using MiniShop.Api.Data.Entities;
+﻿
 
-namespace MiniShop.Api.Data.DbContext
+using Microsoft.EntityFrameworkCore;
+using MiniShop.Core.Entities;
+
+namespace Minishop.Infrastructure.Data
 {
-    public class MiniShopDbContext : Microsoft.EntityFrameworkCore.DbContext
+    public class MiniShopDbContext : DbContext
     {
         public MiniShopDbContext(DbContextOptions<MiniShopDbContext> options) : base(options)
         {

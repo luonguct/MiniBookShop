@@ -1,10 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using MiniShop.SharedKernel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MiniShop.Api.Data.Entities
+namespace MiniShop.Core.Entities
 {
     [Table("Authors")]
-    public class Author
+    public class Author : BaseEntity
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
