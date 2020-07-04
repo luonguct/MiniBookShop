@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using MiniShop.Data.DbContext;
+using MiniShop.Data.Entities;
 
 namespace MiniShop.Controllers
 {
@@ -10,16 +13,25 @@ namespace MiniShop.Controllers
     [Route("api/[controller]")]
     public class BookController : ControllerBase
     {
-        [HttpGet]
-        public string GetBooks()
+        private readonly MiniShopDbContext _context;
+
+        public BookController(MiniShopDbContext context)
         {
-            return "return list of books";
+            _context = context;
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<List<Book>>> GetBooks()
+        {
+            var books = await _context.Books.ToListAsync();
+            return Ok(books);
         }
 
         [HttpGet("{id}")]
-        public string GetBook(int id)
+        public async Task<ActionResult<Book>> GetBook(int id)
         {
-            return $"return single book with id of {id}";
+            var book = await _context.Books.FirstOrDefaultAsync(x => x.BookId == id);
+            return Ok(book);
         }
     }
 }

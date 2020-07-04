@@ -4,6 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using MiniShop.Data.DbContext;
+using MiniShop.Data.Entities;
 
 namespace MiniShop.Controllers
 {
@@ -11,16 +14,25 @@ namespace MiniShop.Controllers
     [ApiController]
     public class AuthorController : ControllerBase
     {
-        [HttpGet]
-        public string GetAuthors()
+        private readonly MiniShopDbContext _context;
+
+        public AuthorController(MiniShopDbContext context)
         {
-            return "return list of authors";
+            _context = context;
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<List<Author>>> GetAuthors()
+        {
+            var authors = await _context.Authors.ToListAsync();
+            return Ok(authors);
         }
 
         [HttpGet("{id}")]
-        public string GetAuthor(int id)
+        public async Task<ActionResult<Author>> GetAuthor(int id)
         {
-            return $"return single author with id of {id}";
+            var author = await _context.Authors.FirstOrDefaultAsync(x => x.AuthorId == id);
+            return Ok(author);
         }
     }
 }
