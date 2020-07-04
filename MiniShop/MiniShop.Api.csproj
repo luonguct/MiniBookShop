@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Minishop.Infrastructure\Minishop.Infrastructure.csproj" />
+    <ProjectReference Include="..\Minishop.Infrastructure\MiniShop.Infrastructure.csproj" />
   </ItemGroup>
 
 

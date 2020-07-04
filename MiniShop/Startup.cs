@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Minishop.Infrastructure.Data;
+using MiniShop.Infrastructure.Data;
 
 namespace MiniShop.Api
 {
@@ -23,7 +23,7 @@ namespace MiniShop.Api
             services.AddControllers();
             services.AddDbContext<MiniShopDbContext>(x =>
             {
-                x.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"));
+                x.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"), y=> y.MigrationsAssembly("MiniShop.Infrastructure"));
             });
         }
 

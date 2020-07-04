@@ -3,7 +3,7 @@ using MiniShop.SharedKernel.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Minishop.Infrastructure.Data
+namespace MiniShop.Infrastructure.Data
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
     {

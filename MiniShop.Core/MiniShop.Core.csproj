@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MiniShop\SharedKernel\MiniShop.SharedKernel.csproj" />
+    <ProjectReference Include="..\Minishop.SharedKernel\MiniShop.SharedKernel.csproj" />
   </ItemGroup>
 
 </Project>

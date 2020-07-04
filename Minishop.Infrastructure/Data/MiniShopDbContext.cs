@@ -3,7 +3,7 @@
 using Microsoft.EntityFrameworkCore;
 using MiniShop.Core.Entities;
 
-namespace Minishop.Infrastructure.Data
+namespace MiniShop.Infrastructure.Data
 {
     public class MiniShopDbContext : DbContext
     {

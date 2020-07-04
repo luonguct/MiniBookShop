@@ -1,6 +1,6 @@
 ﻿using MiniShop.Core.Interfaces;
 
-namespace Minishop.Infrastructure.Data.Repositories
+namespace MiniShop.Infrastructure.Data.Repositories
 {
     public class BookRepository : IBookRepository
     {
