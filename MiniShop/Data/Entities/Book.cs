@@ -19,14 +19,14 @@ namespace MiniShop.Data.Entities
         [Column(TypeName = "nvarchar(4000)")]
         public string Description { get; set; }
 
-        public decimal Price { get; set; }
+        public double Price { get; set; }
 
         [MaxLength(4000)]
         [Required]
         [Column(TypeName = "nvarchar(4000)")]
         public string ImageUrl { get; set; }
 
-        public long AuthorId { get; set; }
+        public int AuthorId { get; set; }
 
         [ForeignKey("AuthorId")]
         public virtual Author Author { get; set; }

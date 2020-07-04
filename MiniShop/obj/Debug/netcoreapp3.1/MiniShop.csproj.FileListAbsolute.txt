@@ -109,3 +109,4 @@ C:\Users\trann\source\repos\MiniShop\MiniShop\bin\Debug\netcoreapp3.1\runtimes\w
 C:\Users\trann\source\repos\MiniShop\MiniShop\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\trann\source\repos\MiniShop\MiniShop\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
 C:\Users\trann\source\repos\MiniShop\MiniShop\obj\Debug\netcoreapp3.1\MiniShop.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\trann\source\repos\MiniShop\MiniShop\obj\Debug\netcoreapp3.1\MiniShop.csprojAssemblyReference.cache
