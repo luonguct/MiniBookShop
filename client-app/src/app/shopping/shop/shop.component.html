@@ -1,6 +1,7 @@
-<div class="container">
-    <div class="alert alert-success" role="alert"> Project build with Angular 9 and .Net Core. <b>Not for commercial
-            purposes</b></div>
+    <div class="alert alert-success" role="alert"> 
+        Project build with Angular 9 and .Net Core. 
+        <b>Not for commercial purposes</b>
+    </div>
 
     <div class="row">
         <div class="col-md-3 sidebar">
@@ -34,7 +35,7 @@
                         </select>
 
                         <button type="button" class="btn btn-primary submit-btn">Search</button>
-                        <button type="button" class="btn btn-success">Reset</button>
+                        <button type="button" class="btn btn-success reset-btn pull-right">Reset</button>
                     </form>
 
                 </div>
@@ -85,181 +86,99 @@
             <div class="panel panel-primary">
                 <div class="panel-heading">Book category</div>
                 <div class="panel-body">
-                    <div class="col-xs-6 col-md-4 col-sm-4 book-item ">
-                        <div class="thumbnail">
-                            <a href="/#">
-                                <img src="/#" alt="book-img">
-                            </a>
-                            <h5 class="book-title">
+                    <div class="row">
+                        <div class="col-xs-6 col-md-4 col-sm-4 book-item ">
+                            <div class="thumbnail">
                                 <a href="/#">
-                                    Book 1
+                                    <img src="/#" alt="book-img">
                                 </a>
-                            </h5>
-                            <p class="text-primary author-name">
-                                Trần Ngọc Quân
-                            </p>
-                            <p class="book-price">
-                                100.000 VNĐ
-                            </p>
-                        </div>
-                    </div>
+                                <h5 class="book-title">
+                                    <a routerLink="/shop/1">
+                                        Book 1
+                                    </a>
+                                </h5>
+                                <p class="text-primary author-name">
+                                    Trần Ngọc Quân
+                                </p>
+                                <p class="book-price">
+                                    100.000 VNĐ
+                                </p>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-outline">
+                                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                    </button>
+                                    <button routerLink="/shop/1" type="button" class="btn btn-outline">
+                                        <i class="fa fa-eye" aria-hidden="true"></i>
+                                    </button>
+                                </div>
 
-                    <div class="col-xs-6 col-md-4 col-sm-4 book-item">
-                        <div class="thumbnail">
-                            <a href="/#">
-                                <img src="/#" alt="book-img">
-                            </a>
-                            <h5 class="book-title">
-                                <a href="/#">
-                                    Book 2
-                                </a>
-                            </h5>
-                            <p class="text-primary author-name">
-                                Trần Ngọc Quân
-                            </p>
-                            <p class="book-price">
-                                100.000 VNĐ
-                            </p>
-                        </div>
-                    </div>
 
-                    <div class="col-xs-6 col-md-4 col-sm-4 book-item ">
-                        <div class="thumbnail">
-                            <a href="/#">
-                                <img src="/#" alt="book-img">
-                            </a>
-                            <h5 class="book-title">
-                                <a href="/#">
-                                    Book 3
-                                </a>
-                            </h5>
-                            <p class="text-primary author-name">
-                                Trần Ngọc Quân
-                            </p>
-                            <p class="book-price">
-                                100.000 VNĐ
-                            </p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="col-xs-6 col-md-4 col-sm-4 book-item ">
-                        <div class="thumbnail">
-                            <a href="/#">
-                                <img src="/#" alt="book-img">
-                            </a>
-                            <h5 class="book-title">
+                        <div class="col-xs-6 col-md-4 col-sm-4 book-item ">
+                            <div class="thumbnail">
                                 <a href="/#">
-                                    Book 1
+                                    <img src="/#" alt="book-img">
                                 </a>
-                            </h5>
-                            <p class="text-primary author-name">
-                                Trần Ngọc Quân
-                            </p>
-                            <p class="book-price">
-                                100.000 VNĐ
-                            </p>
+                                <h5 class="book-title">
+                                    <a routerLink="/shop/1">
+                                        Book 2
+                                    </a>
+                                </h5>
+                                <p class="text-primary author-name">
+                                    Trần Ngọc Quân
+                                </p>
+                                <p class="book-price">
+                                    100.000 VNĐ
+                                </p>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-outline">
+                                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                    </button>
+                                    <button routerLink="/shop/1" type="button" class="btn btn-outline">
+                                        <i class="fa fa-eye" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+
+
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="col-xs-6 col-md-4 col-sm-4 book-item">
-                        <div class="thumbnail">
-                            <a href="/#">
-                                <img src="/#" alt="book-img">
-                            </a>
-                            <h5 class="book-title">
+                        <div class="col-xs-6 col-md-4 col-sm-4 book-item ">
+                            <div class="thumbnail">
                                 <a href="/#">
-                                    Book 2
+                                    <img src="/#" alt="book-img">
                                 </a>
-                            </h5>
-                            <p class="text-primary author-name">
-                                Trần Ngọc Quân
-                            </p>
-                            <p class="book-price">
-                                100.000 VNĐ
-                            </p>
-                        </div>
-                    </div>
+                                <h5 class="book-title">
+                                    <a routerLink="/shop/1">
+                                        Book 3
+                                    </a>
+                                </h5>
+                                <p class="text-primary author-name">
+                                    Trần Ngọc Quân
+                                </p>
+                                <p class="book-price">
+                                    100.000 VNĐ
+                                </p>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-outline">
+                                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                    </button>
+                                    <button routerLink="/shop/1" type="button" class="btn btn-outline">
+                                        <i class="fa fa-eye" aria-hidden="true"></i>
+                                    </button>
+                                </div>
 
-                    <div class="col-xs-6 col-md-4 col-sm-4 book-item ">
-                        <div class="thumbnail">
-                            <a href="/#">
-                                <img src="/#" alt="book-img">
-                            </a>
-                            <h5 class="book-title">
-                                <a href="/#">
-                                    Book 3
-                                </a>
-                            </h5>
-                            <p class="text-primary author-name">
-                                Trần Ngọc Quân
-                            </p>
-                            <p class="book-price">
-                                100.000 VNĐ
-                            </p>
-                        </div>
-                    </div>
 
-                    <div class="col-xs-6 col-md-4 col-sm-4 book-item ">
-                        <div class="thumbnail">
-                            <a href="/#">
-                                <img src="/#" alt="book-img">
-                            </a>
-                            <h5 class="book-title">
-                                <a href="/#">
-                                    Book 1
-                                </a>
-                            </h5>
-                            <p class="text-primary author-name">
-                                Trần Ngọc Quân
-                            </p>
-                            <p class="book-price">
-                                100.000 VNĐ
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="col-xs-6 col-md-4 col-sm-4 book-item">
-                        <div class="thumbnail">
-                            <a href="/#">
-                                <img src="/#" alt="book-img">
-                            </a>
-                            <h5 class="book-title">
-                                <a href="/#">
-                                    Book 2
-                                </a>
-                            </h5>
-                            <p class="text-primary author-name">
-                                Trần Ngọc Quân
-                            </p>
-                            <p class="book-price">
-                                100.000 VNĐ
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="col-xs-6 col-md-4 col-sm-4 book-item ">
-                        <div class="thumbnail">
-                            <a href="/#">
-                                <img src="/#" alt="book-img">
-                            </a>
-                            <h5 class="book-title">
-                                <a href="/#">
-                                    Book 3
-                                </a>
-                            </h5>
-                            <p class="text-primary author-name">
-                                Trần Ngọc Quân
-                            </p>
-                            <p class="book-price">
-                                100.000 VNĐ
-                            </p>
+                            </div>
                         </div>
                     </div>
 
                     <div class="col-xs-12">
                         <ul class="pagination pagination-sm">
                             <li class="active"><span>1<span class="sr-only">(current)</span></span>
-                            
+
                             </li>
                             <li>
                                 <a href="/#">

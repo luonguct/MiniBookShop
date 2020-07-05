@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import { ShoppingModule } from './shopping/shopping.module';
+import { AboutModule } from './about/about.module';
+
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import { ShoppingModule } from './shopping/shopping.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     CoreModule,
-    ShoppingModule
+    ShoppingModule,
+    AboutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,37 @@
+.product-price {
+  font-size: 25px;
+  color: #999999;
+  margin-bottom: 25px;
+}
+
+.product-description h5 {
+  font-size: 25px;
+  color: #999999;
+}
+
+.btn-add-to-card {
+  width: 100%;
+  border: 1px solid rgb(255, 57, 69);
+  background-color: white;
+  color: rgb(255, 57, 69);
+  width: 90%;
+}
+
+.btn-add-to-card:hover {
+  background-color: rgb(255, 57, 69);
+  color:white;
+  border: 1px solid white;
+}
+
+.quantity-value {
+  text-align: center;
+}
+
+.btn-add-to-card i {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.panel-footer button {
+  width: 100%;
+}
