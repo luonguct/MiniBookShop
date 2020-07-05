@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ShopComponent } from './shopping/shop/shop.component';
-import { ProductDetailComponent } from './shopping/shop/product-detail/product-detail.component';
+import { ShopComponent } from './shopping/shop.component';
+import { ProductDetailComponent } from './shopping/product-detail/product-detail.component';
 import { AboutComponent } from './about/about.component';
 
 
