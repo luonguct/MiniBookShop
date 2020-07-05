@@ -1,0 +1,26 @@
+.book-name {
+    margin-bottom: 15px;
+}
+
+.book-select {
+    margin-bottom: 15px;
+}
+
+.submit-btn {
+    margin-right: 5px;
+}
+
+.book-item .thumbnail {
+    padding: 10px;
+}
+
+.book-title a {
+    color: #666;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.book-category a{
+    padding: 5px 10px;
+}
