@@ -4,6 +4,7 @@ using MiniShop.Infrastructure.Data;
 using MiniShop.Core.Entities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using MiniShop.Core.Interfaces;
 
 namespace MiniShop.Api.Controllers
 {
@@ -11,24 +12,25 @@ namespace MiniShop.Api.Controllers
     [ApiController]
     public class AuthorController : ControllerBase
     {
-        private readonly MiniShopDbContext _context;
+        private readonly IGenericRepository<Author> _authorRepository;
 
-        public AuthorController(MiniShopDbContext context)
+
+        public AuthorController(IGenericRepository<Author> authorRepository)
         {
-            _context = context;
+            _authorRepository = authorRepository;
         }
 
         [HttpGet]
         public async Task<ActionResult<List<Author>>> GetAuthors()
         {
-            var authors = await _context.Authors.ToListAsync();
+            var authors = await _authorRepository.GetAllAsync();
             return Ok(authors);
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Author>> GetAuthor(int id)
         {
-            var author = await _context.Authors.FirstOrDefaultAsync(x => x.AuthorId == id);
+            var author = await _authorRepository.GetByIdAsync(id);
             return Ok(author);
         }
     }

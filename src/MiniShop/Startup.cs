@@ -1,10 +1,15 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
+using MiniShop.Api.Helpers;
+using MiniShop.Core.Interfaces;
 using MiniShop.Infrastructure.Data;
+using System.IO;
 
 namespace MiniShop.Api
 {
@@ -20,10 +25,19 @@ namespace MiniShop.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutoMapper(typeof(MappingProfiles));
             services.AddControllers();
+            services.AddScoped(typeof(IGenericRepository<>), (typeof(GenericRepository<>)));
             services.AddDbContext<MiniShopDbContext>(x =>
             {
                 x.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"), y=> y.MigrationsAssembly("MiniShop.Infrastructure"));
+            });
+            services.AddCors(opt =>
+            {
+                opt.AddPolicy("CorsPolicy", policy =>
+                {
+                    policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200");
+                });
             });
         }
 
@@ -38,6 +52,16 @@ namespace MiniShop.Api
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseStaticFiles();
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(
+                    Path.Combine(Directory.GetCurrentDirectory(), "Content")
+                ),
+                RequestPath = "/content"
+            });
+
+            app.UseCors("CorsPolicy");
 
             app.UseAuthorization();
 

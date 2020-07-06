@@ -11,5 +11,10 @@ namespace MiniShop.Core.Specifications
         {
             AddInclude(x => x.Author);
         }
+
+        public BookWithAuthorSpecification(int id) : base(x => x.BookId == id)
+        {
+            AddInclude(x => x.Author);
+        }
     }
 }

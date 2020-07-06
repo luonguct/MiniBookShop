@@ -17,29 +17,30 @@ namespace MiniShop.Infrastructure.Data
             _context = context;
         }
 
-        public Task<List<T>> GetAllAsync()
+        public async Task<List<T>> GetAllAsync()
         {
-            throw new System.NotImplementedException();
+            return await _context.Set<T>().ToListAsync();
         }
 
-        public Task<T> GetByIdAsync(int id)
+        public async Task<T> GetByIdAsync(int id)
         {
-            throw new System.NotImplementedException();
+            return await _context.Set<T>().FindAsync(id);
         }
 
         public void Add(T entity)
         {
-            throw new System.NotImplementedException();
+            _context.Set<T>().Add(entity);
         }
 
         public void Update(T entity)
         {
-            throw new System.NotImplementedException();
+            _context.Set<T>().Attach(entity);
+            _context.Entry(entity).State = EntityState.Modified;
         }
 
         public void Delete(T entity)
         {
-            throw new System.NotImplementedException();
+            _context.Set<T>().Remove(entity);
         }
 
         #region SpecHelper
@@ -49,7 +50,7 @@ namespace MiniShop.Infrastructure.Data
             return await ApplySpecification(spec).FirstOrDefaultAsync();
         }
 
-        public async Task<IReadOnlyList<T>> ListAsync(ISpecification<T> spec)
+        public async Task<List<T>> ListAsync(ISpecification<T> spec)
         {
             return await ApplySpecification(spec).ToListAsync();
         }
