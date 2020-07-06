@@ -19,6 +19,7 @@ namespace MiniShop.Core.Entities
         [Column(TypeName = "nvarchar(4000)")]
         public string Description { get; set; }
 
+        [Required]
         public double Price { get; set; }
 
         [MaxLength(4000)]

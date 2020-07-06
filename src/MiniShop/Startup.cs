@@ -6,9 +6,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
+using MiniShop.Api.Extensions;
 using MiniShop.Api.Helpers;
+using MiniShop.Api.Middleware;
 using MiniShop.Core.Interfaces;
 using MiniShop.Infrastructure.Data;
+using MiniShop.Infrastructure.Data.Repositories;
 using System.IO;
 
 namespace MiniShop.Api
@@ -27,11 +30,15 @@ namespace MiniShop.Api
         {
             services.AddAutoMapper(typeof(MappingProfiles));
             services.AddControllers();
-            services.AddScoped(typeof(IGenericRepository<>), (typeof(GenericRepository<>)));
+          
             services.AddDbContext<MiniShopDbContext>(x =>
             {
                 x.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"), y=> y.MigrationsAssembly("MiniShop.Infrastructure"));
             });
+
+            services.AddApplicationServices();
+            //services.AddIdentityServices(_config);
+            //services.AddSwaggerDocumentation();
             services.AddCors(opt =>
             {
                 opt.AddPolicy("CorsPolicy", policy =>
@@ -44,10 +51,8 @@ namespace MiniShop.Api
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
+            app.UseMiddleware<ExceptionMiddleware>();
+            app.UseStatusCodePagesWithReExecute("/errors/{0}");
 
             app.UseHttpsRedirection();
 

@@ -10,7 +10,7 @@ namespace MiniShop.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AuthorController : ControllerBase
+    public class AuthorController : BaseApiController
     {
         private readonly IGenericRepository<Author> _authorRepository;
 
