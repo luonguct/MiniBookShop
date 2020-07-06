@@ -10,6 +10,7 @@ namespace MiniShop.Api.Helpers
         {
             CreateMap<Book, BookDto>()
                 .ForMember(d => d.Author, o => o.MapFrom(s => s.Author.Name))
+                .ForMember(d => d.BookCategory, o => o.MapFrom(s => s.BookCategory.Name))
                 .ForMember(d => d.ImageUrl, o => o.MapFrom<BookImageUrlResolver>()); ;
         }
     }

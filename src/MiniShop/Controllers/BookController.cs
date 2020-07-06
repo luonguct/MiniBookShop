@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MiniShop.Api.Dto;
 using MiniShop.Api.Errors;
+using MiniShop.Api.Helpers;
 using MiniShop.Core.Entities;
 using MiniShop.Core.Interfaces;
 using MiniShop.Core.Specifications;
@@ -30,13 +31,17 @@ namespace MiniShop.Api.Controllers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<List<BookDto>>> GetBooks()
+        public async Task<ActionResult<Pagination<List<BookDto>>>> GetBooks([FromQuery]BookSpecParams bookParams)
         {
-            var spec = new BookWithAuthorSpecification();
+            var countSpec = new BookWithFilterForCountSpecification(bookParams);
+            var spec = new BookWithAuthorSpecification(bookParams);
+
+            var totalItems = await _bookRepository.CountAsync(countSpec);
             var books = await _bookRepository.ListAsync(spec);
+
             var data = _mapper.Map<List<Book>, List<BookDto>>(books);
 
-            return Ok(data);
+            return Ok(new Pagination<BookDto>(bookParams.PageIndex, bookParams.PageSize, totalItems, data));
         }
 
         [HttpGet("{id}")]
