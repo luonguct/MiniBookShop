@@ -1,5 +1,4 @@
-﻿using MiniShop.SharedKernel;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MiniShop.Core.Entities

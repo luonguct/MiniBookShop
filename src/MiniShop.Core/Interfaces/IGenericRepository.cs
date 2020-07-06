@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using MiniShop.Core.Entities;
+using MiniShop.Core.Specifications;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MiniShop.SharedKernel.Interfaces
+namespace MiniShop.Core.Interfaces
 {
     public interface IGenericRepository<T> where T : BaseEntity
     {
@@ -10,8 +12,11 @@ namespace MiniShop.SharedKernel.Interfaces
         Task<List<T>> GetAllAsync();
 
         Task<T> GetEntityWithSpec(ISpecification<T> spec);
+
         Task<IReadOnlyList<T>> ListAsync(ISpecification<T> spec);
+
         Task<int> CountAsync(ISpecification<T> spec);
+
         void Add(T entity);
 
         void Update(T entity);
