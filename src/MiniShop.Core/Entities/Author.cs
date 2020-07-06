@@ -11,8 +11,8 @@ namespace MiniShop.Core.Entities
         public int AuthorId { get; set; }
 
         [Required]
-        [MaxLength(200)]
-        [Column(TypeName = "nvarchar(200)")]
+        [MaxLength(255)]
+        [Column(TypeName = "nvarchar(255)")]
         public string Name { get; set; }
     }
 }
