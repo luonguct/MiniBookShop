@@ -1,0 +1,49 @@
+.submit-btn, .reset-btn {
+    width: 45%;
+}
+
+.book-name {
+    margin-bottom: 15px;
+}
+
+.book-select {
+    margin-bottom: 15px;
+}
+
+.submit-btn {
+    margin-right: 5px;
+}
+
+.book-item .thumbnail {
+    padding: 10px;
+}
+
+.book-title a {
+    color: #666;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.book-category a{
+    padding: 5px 10px;
+}
+
+.btn-group {
+    width: 100%;
+}
+
+.btn-outline {
+    width: 45%;
+    border-color: #e7e7e7;
+    color: #008cba;
+    background-color: #fff;
+}
+
+.btn-outline:hover {
+    border-color: #008cba;
+  }
+
+.btn-outline:first-child {
+    margin-right: 10px;
+}
