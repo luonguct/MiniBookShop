@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MiniShop.Api.Dto;
 using MiniShop.Api.Errors;
@@ -27,17 +28,20 @@ namespace MiniShop.Api.Controllers
         }
 
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<List<BookDto>>> GetBooks()
         {
             var spec = new BookWithAuthorSpecification();
             var books = await _bookRepository.ListAsync(spec);
-            var data = _mapper
-               .Map<List<Book>, List<BookDto>>(books);
+            var data = _mapper.Map<List<Book>, List<BookDto>>(books);
 
             return Ok(data);
         }
 
         [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<BookDto>> GetBook(int id)
         {
             var spec = new BookWithAuthorSpecification(id);

@@ -38,7 +38,7 @@ namespace MiniShop.Api
 
             services.AddApplicationServices();
             //services.AddIdentityServices(_config);
-            //services.AddSwaggerDocumentation();
+            services.AddSwaggerDocumentation();
             services.AddCors(opt =>
             {
                 opt.AddPolicy("CorsPolicy", policy =>
@@ -69,6 +69,8 @@ namespace MiniShop.Api
             app.UseCors("CorsPolicy");
 
             app.UseAuthorization();
+
+            app.UseSwaggerDocumention();
 
             app.UseEndpoints(endpoints =>
             {
