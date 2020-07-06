@@ -25,7 +25,7 @@ namespace MiniShop.Infrastructure.Data.Migrations
                 {
                     BookId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(200", maxLength: 200, nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(4000)", maxLength: 4000, nullable: true),
                     Price = table.Column<double>(nullable: false),
                     ImageUrl = table.Column<string>(type: "nvarchar(4000)", maxLength: 4000, nullable: false),

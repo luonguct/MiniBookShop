@@ -12,6 +12,7 @@ namespace MiniShop.Infrastructure.Data
         }
 
         public DbSet<Book> Books { get; set; }
+        public DbSet<BookCategory> BookCategories { get; set; }
         public DbSet<Author> Authors { get; set; }
     }
 }

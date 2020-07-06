@@ -10,9 +10,9 @@ namespace MiniShop.Core.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int BookId { get; set; }
 
-        [MaxLength(200)]
+        [MaxLength(255)]
         [Required]
-        [Column(TypeName = "nvarchar(200")]
+        [Column(TypeName = "nvarchar(255)")]
         public string Title { get; set; }
 
         [MaxLength(4000)]
@@ -27,8 +27,12 @@ namespace MiniShop.Core.Entities
         public string ImageUrl { get; set; }
 
         public int AuthorId { get; set; }
-
         [ForeignKey("AuthorId")]
         public virtual Author Author { get; set; }
+
+        public int BookCategoryId { get; set; }
+        [ForeignKey("BookCategoryId")]
+        public virtual BookCategory BookCategory { get; set; }
+
     }
 }
