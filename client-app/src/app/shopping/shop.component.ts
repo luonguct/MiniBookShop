@@ -1,23 +1,75 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../shared/models/book';
 import { ShoppingService } from './shopping.service';
+import { Author } from '../shared/models/author';
+import { BookCategory } from '../shared/models/bookCategory';
+import { ShopParams } from '../shared/models/ShopParams';
 
 @Component({
   selector: 'app-shop',
   templateUrl: './shop.component.html',
-  styleUrls: ['./shop.component.css']
+  styleUrls: ['./shop.component.css'],
 })
 export class ShopComponent implements OnInit {
   books: Book[];
-  constructor(private shoppingService: ShoppingService) { }
+  authors: Author[];
+  bookCategories: BookCategory[];
 
-  ngOnInit(): void {
-    this.shoppingService.getProducts().subscribe(response => {
-      this.books = response.data;
-      console.log(this.books);
-    }, error => {
-      console.log(error);
-    });
+  shopParams: ShopParams;
+  totalCount: number;
+  sortOptions = [
+    { name: 'Alphabetical', value: 'name' },
+    { name: 'Price: Low to High', value: 'priceAsc' },
+    { name: 'Price: High to Low', value: 'priceDesc' }
+  ];
+
+  constructor(private shoppingService: ShoppingService) {
+
   }
 
+  ngOnInit(): void {
+    this.getBooks();
+    this.getAuthors();
+    this.getBookCategories();
+  }
+
+  getBooks() {
+    this.shoppingService.getBooks().subscribe(
+      (response) => {
+        this.books = response.data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  getAuthors() {
+    this.shoppingService.getAuthors().subscribe(
+      (response) => {
+        this.authors = response.data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  getBookCategories() {
+    this.shoppingService.getBookCategories().subscribe(
+      (response) => {
+        this.bookCategories = response.data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  onSortSelected(sort: string) {
+    const params = this.shoppingService.getShopParams();
+    params.sort = sort;
+    this.shoppingService.setShopParams(params);
+    this.getBooks();
+  }
 }

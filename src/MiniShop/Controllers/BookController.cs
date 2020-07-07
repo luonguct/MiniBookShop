@@ -13,8 +13,6 @@ using System.Threading.Tasks;
 
 namespace MiniShop.Api.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")]
     public class BookController : BaseApiController
     {
         private readonly IGenericRepository<Book> _bookRepository;

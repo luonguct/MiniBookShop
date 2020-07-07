@@ -13,7 +13,6 @@
             set => _pageSize = (value > MaxPageSize) ? MaxPageSize : value;
         }
 
-        public string AuthorName { get; set; }
         public int? AuthorId { get; set; }
         public int? BookCategoryId { get; set; }
         public string Sort { get; set; }
