@@ -1,3 +1,11 @@
+<ngx-spinner
+  bdColor="rgba(0,0,0,0)"
+  size="medium"
+  color="#008cba"
+  type="ball-clip-rotate"
+>
+</ngx-spinner>
+
 <div class="alert alert-success" role="alert">
   Project build with Angular 9 and .Net Core.
   <b>Not for commercial purposes</b>
@@ -10,7 +18,10 @@
         Sort
       </div>
       <div class="panel-body">
-        <select class="form-control">
+        <select
+          class="form-control"
+          (change)="onSortSelected($event.target.value)"
+        >
           <option value="" selected="" disabled="">Please select</option>
           <option *ngFor="let sort of sortOptions" [value]="sort.value">
             {{ sort.name }}
@@ -50,7 +61,15 @@
     <div class="panel panel-primary">
       <div class="panel-heading">Book category</div>
       <ul class="nav nav-pills nav-stacked">
-        <li *ngFor="let item of bookCategories" class="book-category">
+        <li
+          class="book-category"
+          *ngFor="let item of bookCategories"
+          [class.book-category-active]="
+            item.bookCategoryId === this.shopParams.bookCategoryId
+          "
+          [value]="item.bookCategoryId"
+          (click)="onBookCategorySelected(item.bookCategoryId)"
+        >
           <a>
             <span class="glyphicon glyphicon-record"> </span>
             {{ item.name }}
@@ -69,30 +88,15 @@
             <app-product-item [book]="item"></app-product-item>
           </div>
         </div>
+        <div class="row" *ngIf="totalCount > 0">
+          <app-pager
+            [pageSize]="shopParams.pageSize"
+            [pageIndex]="shopParams.pageIndex"
+            [totalCount]="totalCount"
+            (pageChanged)="onPageChanged($event)"
+          ></app-pager>
+        </div>
       </div>
-    </div>
-
-    <div class="col-xs-12">
-      <ul class="pagination pagination-sm">
-        <li class="active">
-          <span>1<span class="sr-only">(current)</span></span>
-        </li>
-        <li>
-          <a href="/#">
-            2
-          </a>
-        </li>
-        <li>
-          <a href="/#">
-            3
-          </a>
-        </li>
-        <li>
-          <a href="/#">
-            4
-          </a>
-        </li>
-      </ul>
     </div>
   </div>
 </div>

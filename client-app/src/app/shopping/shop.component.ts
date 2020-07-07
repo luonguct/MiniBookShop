@@ -4,6 +4,7 @@ import { ShoppingService } from './shopping.service';
 import { Author } from '../shared/models/author';
 import { BookCategory } from '../shared/models/bookCategory';
 import { ShopParams } from '../shared/models/ShopParams';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-shop',
@@ -23,7 +24,12 @@ export class ShopComponent implements OnInit {
     { name: 'Price: High to Low', value: 'priceDesc' },
   ];
 
-  constructor(private shoppingService: ShoppingService) {}
+  constructor(
+    private shoppingService: ShoppingService,
+    private spinner: NgxSpinnerService
+  ) {
+    this.shopParams = this.shoppingService.getShopParams();
+  }
 
   ngOnInit(): void {
     this.getBooks();
@@ -32,13 +38,16 @@ export class ShopComponent implements OnInit {
   }
 
   getBooks() {
+    this.spinner.show();
     this.shoppingService.getBooks().subscribe(
       (response) => {
         this.books = response.data;
-        console.log(this.books);
+        this.totalCount = response.count;
+        this.spinner.hide();
       },
       (error) => {
         console.log(error);
+        this.spinner.hide();
       }
     );
   }
@@ -71,5 +80,22 @@ export class ShopComponent implements OnInit {
     params.sort = sort;
     this.shoppingService.setShopParams(params);
     this.getBooks();
+  }
+
+  onBookCategorySelected(bookCategoryId: number) {
+    const params = this.shoppingService.getShopParams();
+    params.bookCategoryId = bookCategoryId;
+    params.pageIndex = 1;
+    this.shoppingService.setShopParams(params);
+    this.getBooks();
+  }
+
+  onPageChanged(event: any) {
+    const params = this.shoppingService.getShopParams();
+    if (params.pageIndex !== event) {
+      params.pageIndex = event;
+      this.shoppingService.setShopParams(params);
+      this.getBooks();
+    }
   }
 }

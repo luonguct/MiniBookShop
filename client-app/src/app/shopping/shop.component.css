@@ -27,6 +27,7 @@
 
 .book-category a{
     padding: 5px 10px;
+    cursor: pointer;
 }
 
 .btn-group {
@@ -46,4 +47,16 @@
 
 .btn-outline:first-child {
     margin-right: 10px;
+}
+
+.book-category-active {
+    background: #008cba;
+}
+
+.book-category-active a {
+    color: #fff;
+}
+
+.book-category-active:hover a {
+    background: #008cba;
 }
