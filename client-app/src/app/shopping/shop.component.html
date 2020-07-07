@@ -39,19 +39,34 @@
             class="form-control book-name"
             aria-describedby="Name"
             placeholder="Enter a book title"
+            #search
           />
 
-          <select class="form-control book-select">
-            <option value="" selected="" disabled="">Select author</option>
-            <option *ngFor="let author of authors" [value]="author.authorId">
+          <select
+            class="form-control book-select"
+            (change)="onAuthorSelected($event.target.value)"
+          >
+            <option
+              *ngFor="let author of authors"
+              [value]="author.authorId"
+              [selected]="shopParams.authorId === author.authorId"
+            >
               {{ author.name }}
             </option>
           </select>
 
-          <button type="button" class="btn btn-primary submit-btn">
+          <button
+            (click)="onSearch()"
+            type="button"
+            class="btn btn-primary submit-btn"
+          >
             Search
           </button>
-          <button type="button" class="btn btn-success reset-btn pull-right">
+          <button
+            (click)="onReset()"
+            type="button"
+            class="btn btn-success reset-btn pull-right"
+          >
             Reset
           </button>
         </form>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Book } from '../shared/models/book';
 import { ShoppingService } from './shopping.service';
 import { Author } from '../shared/models/author';
@@ -12,6 +12,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
   styleUrls: ['./shop.component.css'],
 })
 export class ShopComponent implements OnInit {
+  @ViewChild('search') searchTerm: ElementRef;
   books: Book[];
   authors: Author[];
   bookCategories: BookCategory[];
@@ -55,8 +56,7 @@ export class ShopComponent implements OnInit {
   getAuthors() {
     this.shoppingService.getAuthors().subscribe(
       (response) => {
-        this.authors = response;
-        console.log(this.authors);
+        this.authors = [{ authorId: 0, name: 'All' }, ...response];;
       },
       (error) => {
         console.log(error);
@@ -90,6 +90,13 @@ export class ShopComponent implements OnInit {
     this.getBooks();
   }
 
+  onAuthorSelected(authorId: number) {
+    const params = this.shoppingService.getShopParams();
+    params.authorId = authorId;
+    params.pageIndex = 1;
+    this.shoppingService.setShopParams(params);
+  }
+
   onPageChanged(event: any) {
     const params = this.shoppingService.getShopParams();
     if (params.pageIndex !== event) {
@@ -97,5 +104,20 @@ export class ShopComponent implements OnInit {
       this.shoppingService.setShopParams(params);
       this.getBooks();
     }
+  }
+
+  onSearch() {
+    const params = this.shoppingService.getShopParams();
+    params.search = this.searchTerm.nativeElement.value;
+    params.pageIndex = 1;
+    this.shoppingService.setShopParams(params);
+    this.getBooks();
+  }
+
+  onReset() {
+    this.searchTerm.nativeElement.value = '';
+    this.shopParams = new ShopParams();
+    this.shoppingService.setShopParams(this.shopParams);
+    this.getBooks();
   }
 }
