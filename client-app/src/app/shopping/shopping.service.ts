@@ -54,15 +54,15 @@ export class ShoppingService {
       );
   }
 
-  // getBook() {
-  //   const product = this.books.find(p => p.bookId === id);
+  getBook(id: number) {
+    // const product = this.books.find(p => p.bookId === id);
 
-  //   if (product) {
-  //     return of(product);
-  //   }
+    // if (product) {
+    //   return of(product);
+    // }
 
-  //   return this.http.get<IProduct>(this.baseUrl + 'products/' + id);
-  // }
+    return this.http.get<Book>(`${environment.apiUrl}/book/` + id);
+  }
 
   getAuthors() {
     return this.http.get<Author[]>(`${environment.apiUrl}/author`);

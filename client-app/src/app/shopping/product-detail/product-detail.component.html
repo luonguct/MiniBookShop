@@ -2,8 +2,8 @@
     <div class="panel-heading">
         <div class="row">
             <div class="col-lg-6 col-md-6 col-xs-6">
-                <h1>Fortune Of Time</h1>
-                <p class="text-warning">by Abby Muscles</p>
+                <h1>{{ book.title }}</h1>
+                <p class="text-warning">by {{ book.author }}</p>
             </div>
         </div>
     </div>
@@ -11,31 +11,11 @@
     <div class="panel-body">
         <div class="row">
             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
-                <h5 class="product-price">List Price: $80.00</h5>
+                <h5 class="product-price">List Price: {{ book.price }}</h5>
 
                 <div class="product-description">
                     <h5>Description</h5>
-                    <p>
-                        Suspendisse potenti. Maecenas cursus, erat eget eleifend elementum, lacus nibh auctor metus,
-                        quis
-                        bibendum est orci in magna.
-                        Suspendisse potenti. Maecenas cursus, erat eget eleifend elementum, lacus nibh auctor metus,
-                        quis
-                        bibendum est orci in magna.
-                        Suspendisse potenti. Maecenas cursus, erat eget eleifend elementum, lacus nibh auctor metus,
-                        quis
-                        bibendum est orci in magna.
-                        Suspendisse potenti. Maecenas cursus, erat eget eleifend elementum, lacus nibh auctor metus,
-                        quis
-                        bibendum est orci in magna.
-                    </p>
-                    <p
-                        style="margin: 0px 0px 15px; padding: 0px; text-align: justify; font-family: 'Open Sans', Arial, sans-serif; font-size: 14px; background-color: #ffffff;">
-                        Fusce consequat diam sit amet viverra ultricies. Integer tempus, elit nec elementum posuere,
-                        risus
-                        urna faucibus dolor, et feugiat orci nisi at libero. Donec tempus massa at nisi ultrices, nec
-                        suscipit nibh rutrum.
-                    </p>
+                    <p>{{ book.description }}</p>>
                 </div>
 
 
@@ -61,8 +41,7 @@
             </div>
 
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-                <img src="https://sachvui.com/cover2/2018/loi-song-toi-gian-cua-nguoi-nhat.jpg" width="100%"
-                    class="rounded">
+                <img src="{{ book.imageUrl }}" width="100%" class="rounded">
             </div>
         </div>
     </div>
