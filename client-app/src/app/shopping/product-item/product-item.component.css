@@ -1,5 +1,6 @@
 .book-title {
     height: 45px;
+    overflow:hidden;
 }
 
 .book-item .thumbnail {
@@ -36,6 +37,6 @@
 } */
 
 .book-item img {
-    height: 300px;
+    height: 250px;
     width: 100%;
 }

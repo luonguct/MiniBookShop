@@ -20,12 +20,10 @@ export class ShopComponent implements OnInit {
   sortOptions = [
     { name: 'Alphabetical', value: 'name' },
     { name: 'Price: Low to High', value: 'priceAsc' },
-    { name: 'Price: High to Low', value: 'priceDesc' }
+    { name: 'Price: High to Low', value: 'priceDesc' },
   ];
 
-  constructor(private shoppingService: ShoppingService) {
-
-  }
+  constructor(private shoppingService: ShoppingService) {}
 
   ngOnInit(): void {
     this.getBooks();
@@ -37,6 +35,7 @@ export class ShopComponent implements OnInit {
     this.shoppingService.getBooks().subscribe(
       (response) => {
         this.books = response.data;
+        console.log(this.books);
       },
       (error) => {
         console.log(error);
@@ -47,7 +46,8 @@ export class ShopComponent implements OnInit {
   getAuthors() {
     this.shoppingService.getAuthors().subscribe(
       (response) => {
-        this.authors = response.data;
+        this.authors = response;
+        console.log(this.authors);
       },
       (error) => {
         console.log(error);
@@ -58,7 +58,7 @@ export class ShopComponent implements OnInit {
   getBookCategories() {
     this.shoppingService.getBookCategories().subscribe(
       (response) => {
-        this.bookCategories = response.data;
+        this.bookCategories = [{ bookCategoryId: 0, name: 'All' }, ...response];
       },
       (error) => {
         console.log(error);

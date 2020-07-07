@@ -10,11 +10,11 @@
         Sort
       </div>
       <div class="panel-body">
-        <select class="form-control" id="AuthorId">
+        <select class="form-control">
           <option value="" selected="" disabled="">Please select</option>
-          <option>Alphabetical</option>
-          <option>Price: Low to high</option>
-          <option>Price: High to low</option>
+          <option *ngFor="let sort of sortOptions" [value]="sort.value">
+            {{ sort.name }}
+          </option>
         </select>
       </div>
     </div>
@@ -32,10 +32,9 @@
 
           <select class="form-control book-select">
             <option value="" selected="" disabled="">Select author</option>
-            <option>Author 1</option>
-            <option>Author 2</option>
-            <option>Author 3</option>
-            <option>Author 4</option>
+            <option *ngFor="let author of authors" [value]="author.authorId">
+              {{ author.name }}
+            </option>
           </select>
 
           <button type="button" class="btn btn-primary submit-btn">
@@ -50,34 +49,11 @@
 
     <div class="panel panel-primary">
       <div class="panel-heading">Book category</div>
-      <ul id="" class="nav nav-pills nav-stacked">
-        <li class="book-category">
-          <a href="https://sachvui.com/the-loai/tat-ca.html">
-            <span class="glyphicon glyphicon-record"> </span> All
-          </a>
-        </li>
-
-        <li class="book-category">
-          <a href="https://sachvui.com/the-loai/tat-ca.html">
-            <span class="glyphicon glyphicon-record"> </span> Economic
-          </a>
-        </li>
-
-        <li class="book-category">
-          <a href="https://sachvui.com/the-loai/tat-ca.html">
-            <span class="glyphicon glyphicon-record"> </span> Marketing
-          </a>
-        </li>
-
-        <li class="book-category">
-          <a href="https://sachvui.com/the-loai/tat-ca.html">
-            <span class="glyphicon glyphicon-record"> </span> Medicine
-          </a>
-        </li>
-
-        <li class="book-category">
-          <a href="https://sachvui.com/the-loai/tat-ca.html">
-            <span class="glyphicon glyphicon-record"> </span> Technology
+      <ul class="nav nav-pills nav-stacked">
+        <li *ngFor="let item of bookCategories" class="book-category">
+          <a>
+            <span class="glyphicon glyphicon-record"> </span>
+            {{ item.name }}
           </a>
         </li>
       </ul>
@@ -86,7 +62,7 @@
 
   <div class="col-md-9">
     <div class="panel panel-primary">
-      <div class="panel-heading">Book category</div>
+      <div class="panel-heading">Book category (Displaying 6 items)</div>
       <div class="panel-body">
         <div class="row">
           <div class="col-xs-6 col-md-4 col-sm-4" *ngFor="let item of books">

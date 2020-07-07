@@ -19,7 +19,6 @@ export class ShoppingService {
   constructor(private http: HttpClient) {}
 
   getBooks() {
-    debugger;
     let params = new HttpParams();
 
     if (this.shopParams.authorId !== 0) {
@@ -27,7 +26,10 @@ export class ShoppingService {
     }
 
     if (this.shopParams.bookCategoryId !== 0) {
-      params = params.append('bookCategoryId', this.shopParams.bookCategoryId.toString());
+      params = params.append(
+        'bookCategoryId',
+        this.shopParams.bookCategoryId.toString()
+      );
     }
 
     if (this.shopParams.search) {
@@ -38,15 +40,18 @@ export class ShoppingService {
     params = params.append('pageIndex', this.shopParams.pageIndex.toString());
     params = params.append('pageSize', this.shopParams.pageSize.toString());
 
-    return this.http.get<Pagination<Book>>(`${environment.apiUrl}/book`, { observe: 'response', params })
-    .pipe(
-      map(response => {
-        debugger;
-        this.books = [...this.books, ...response.body.data];
-        this.pagination = response.body;
-        return this.pagination;
+    return this.http
+      .get<Pagination<Book>>(`${environment.apiUrl}/book`, {
+        observe: 'response',
+        params,
       })
-    );
+      .pipe(
+        map((response) => {
+          this.books = [...this.books, ...response.body.data];
+          this.pagination = response.body;
+          return this.pagination;
+        })
+      );
   }
 
   // getBook() {
@@ -60,13 +65,11 @@ export class ShoppingService {
   // }
 
   getAuthors() {
-    return this.http.get<Pagination<Author>>(`${environment.apiUrl}/author`);
+    return this.http.get<Author[]>(`${environment.apiUrl}/author`);
   }
 
   getBookCategories() {
-    return this.http.get<Pagination<BookCategory>>(
-      `${environment.apiUrl}/bookCategory`
-    );
+    return this.http.get<BookCategory[]>(`${environment.apiUrl}/bookCategory`);
   }
 
   getShopParams() {
@@ -76,6 +79,4 @@ export class ShoppingService {
   setShopParams(params: ShopParams) {
     this.shopParams = params;
   }
-
-
 }
