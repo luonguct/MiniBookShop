@@ -1,0 +1,30 @@
+<div class="book-item">
+  <div class="thumbnail">
+    <a routerLink="/shop/{{ book.bookId }}">
+      <img src="{{ book.imageUrl }}" alt="{{ book.title }}" />
+    </a>
+    <h5 class="book-title">
+      <a routerLink="/shop/{{ book.bookId }}">
+        {{ book.title }}
+      </a>
+    </h5>
+    <p class="text-primary author-name">
+      {{ book.author }}
+    </p>
+    <p class="book-price">
+      {{ book.price }}
+    </p>
+    <div class="btn-group">
+      <button type="button" class="btn btn-outline">
+        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+      </button>
+      <button
+        routerLink="/shop/{{ book.bookId }}"
+        type="button"
+        class="btn btn-outline"
+      >
+        <i class="fa fa-eye" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+</div>

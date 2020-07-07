@@ -3,9 +3,11 @@ import { CommonModule } from '@angular/common';
 import { ShopComponent } from './shop.component';
 import { RouterModule } from '@angular/router';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { ProductItemComponent } from './product-item/product-item.component';
+
 
 @NgModule({
-  declarations: [ShopComponent, ProductDetailComponent],
+  declarations: [ShopComponent, ProductDetailComponent, ProductItemComponent],
   imports: [
     RouterModule,
     CommonModule

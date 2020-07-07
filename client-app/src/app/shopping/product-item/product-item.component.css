@@ -1,0 +1,41 @@
+.book-title {
+    height: 45px;
+}
+
+.book-item .thumbnail {
+    padding: 10px;
+}
+
+.book-title a {
+    color: #666;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.btn-group {
+    width: 100%;
+}
+
+.btn-outline {
+    width: 45%;
+    border-color: #e7e7e7;
+    color: #008cba;
+    background-color: #fff;
+}
+
+.btn-outline:hover {
+    border-color: #008cba;
+  }
+
+.btn-outline:first-child {
+    margin-right: 10px;
+}
+/* .book-item {
+    min-height: 500px;
+} */
+
+.book-item img {
+    height: 300px;
+    width: 100%;
+}
