@@ -8,6 +8,8 @@ import { CoreModule } from './core/core.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ShoppingModule } from './shopping/shopping.module';
 import { AboutModule } from './about/about.module';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { LoadingInterceptor } from './core/interceptors/loading.interceptor';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,8 +21,11 @@ import { AboutModule } from './about/about.module';
     CoreModule,
     ShoppingModule,
     AboutModule,
+    NgxSpinnerModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -15,7 +15,9 @@ export class ProductDetailComponent implements OnInit {
     private activateRoute: ActivatedRoute
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.loadBook();
+  }
 
   loadBook() {
     this.shoppingService
@@ -23,6 +25,7 @@ export class ProductDetailComponent implements OnInit {
       .subscribe(
         (book) => {
           this.book = book;
+          console.log(this.book);
         },
         (error) => {
           console.log(error);

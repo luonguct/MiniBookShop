@@ -55,6 +55,7 @@ export class ShoppingService {
   }
 
   getBook(id: number) {
+    console.log(id);
     // const product = this.books.find(p => p.bookId === id);
 
     // if (product) {

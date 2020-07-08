@@ -12,7 +12,7 @@
       {{ book.author }}
     </p>
     <p class="book-price">
-      {{ book.price }}
+      {{ book.price | number: '1.0-0' }}
     </p>
     <div class="btn-group">
       <button type="button" class="btn btn-outline">

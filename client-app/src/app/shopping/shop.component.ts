@@ -1,10 +1,9 @@
+import { Author } from './../shared/models/author';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Book } from '../shared/models/book';
 import { ShoppingService } from './shopping.service';
-import { Author } from '../shared/models/author';
 import { BookCategory } from '../shared/models/bookCategory';
 import { ShopParams } from '../shared/models/ShopParams';
-import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-shop',
@@ -16,6 +15,7 @@ export class ShopComponent implements OnInit {
   books: Book[];
   authors: Author[];
   bookCategories: BookCategory[];
+  bookCategoryTitle: string;
 
   shopParams: ShopParams;
   totalCount: number;
@@ -26,8 +26,7 @@ export class ShopComponent implements OnInit {
   ];
 
   constructor(
-    private shoppingService: ShoppingService,
-    private spinner: NgxSpinnerService
+    private shoppingService: ShoppingService
   ) {
     this.shopParams = this.shoppingService.getShopParams();
   }
@@ -39,16 +38,15 @@ export class ShopComponent implements OnInit {
   }
 
   getBooks() {
-    this.spinner.show();
+    const params = this.shoppingService.getShopParams();
     this.shoppingService.getBooks().subscribe(
       (response) => {
+        this.bookCategoryTitle = params.bookCategoryTitle;
         this.books = response.data;
         this.totalCount = response.count;
-        this.spinner.hide();
       },
       (error) => {
         console.log(error);
-        this.spinner.hide();
       }
     );
   }
@@ -82,9 +80,10 @@ export class ShopComponent implements OnInit {
     this.getBooks();
   }
 
-  onBookCategorySelected(bookCategoryId: number) {
+  onBookCategorySelected(bookCategoryId: number, bookCategoryTitle: string) {
     const params = this.shoppingService.getShopParams();
     params.bookCategoryId = bookCategoryId;
+    params.bookCategoryTitle = bookCategoryTitle;
     params.pageIndex = 1;
     this.shoppingService.setShopParams(params);
     this.getBooks();
