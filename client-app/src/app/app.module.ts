@@ -19,7 +19,6 @@ import { LoadingInterceptor } from './core/interceptors/loading.interceptor';
     BrowserAnimationsModule,
     HttpClientModule,
     CoreModule,
-    ShoppingModule,
     AboutModule,
     NgxSpinnerModule,
   ],

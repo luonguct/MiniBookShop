@@ -15,7 +15,7 @@
       {{ book.price | number: '1.0-0' }}
     </p>
     <div class="btn-group">
-      <button type="button" class="btn btn-outline">
+      <button (click)="addItemToBasket()" type="button" class="btn btn-outline">
         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
       </button>
       <button
