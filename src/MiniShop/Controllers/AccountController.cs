@@ -75,7 +75,7 @@ namespace MiniShop.Api.Controllers
             return new UserDto
             {
                 DisplayName = user.DisplayName,
-                Token = _tokenService.CreateToken(user),
+                //Token = _tokenService.CreateToken(user),
                 Email = user.Email
             };
         }
