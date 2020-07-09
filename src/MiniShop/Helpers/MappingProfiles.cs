@@ -15,6 +15,7 @@ namespace MiniShop.Api.Helpers
                 .ForMember(d => d.ImageUrl, o => o.MapFrom<BookImageUrlResolver>());
 
             CreateMap<CustomerBasketViewModel, CustomerBasket>();
+            CreateMap<BasketItemViewModel, BasketItem>();
         }
     }
 }

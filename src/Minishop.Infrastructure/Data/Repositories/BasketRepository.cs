@@ -41,7 +41,7 @@ namespace MiniShop.Infrastructure.Data.Repositories
             byte[] byteValue = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(basket));
 
             await _distributedCache.SetAsync(basket.Id, byteValue, new DistributedCacheEntryOptions()
-                .SetSlidingExpiration(TimeSpan.FromHours(_configuration.GetValue<int>("CacheDurationInHours"))));
+                .SetSlidingExpiration(TimeSpan.FromDays(_configuration.GetValue<int>("CacheDurationInDays"))));
 
             return await GetBasketAsync(basket.Id);
         }

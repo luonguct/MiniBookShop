@@ -18,8 +18,8 @@ namespace MiniShop.Api.Controllers
             _basketRepository = basketRepository;
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<CustomerBasket>> GetBasketAsync([FromRoute] string id)
+        [HttpGet]
+        public async Task<ActionResult<CustomerBasket>> GetBasketAsync(string id)
         {
             var basket = await _basketRepository.GetBasketAsync(id);
 
