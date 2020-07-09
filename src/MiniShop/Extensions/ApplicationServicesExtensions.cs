@@ -19,7 +19,7 @@ namespace MiniShop.Api.Extensions
             //services.AddScoped<IPaymentService, PaymentService>();
             //services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IBookRepository, BookRepository>();
-            //services.AddScoped<IBasketRepository, BasketRepository>();
+            services.AddScoped<IBasketRepository, BasketRepository>();
             services.AddScoped(typeof(IGenericRepository<>), (typeof(GenericRepository<>)));
             services.Configure<ApiBehaviorOptions>(options =>
             {
