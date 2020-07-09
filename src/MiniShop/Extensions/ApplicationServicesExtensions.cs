@@ -4,6 +4,7 @@ using MiniShop.Api.Errors;
 using MiniShop.Core.Interfaces;
 using MiniShop.Infrastructure.Data;
 using MiniShop.Infrastructure.Data.Repositories;
+using MiniShop.Infrastructure.Services;
 using System.Linq;
 
 namespace MiniShop.Api.Extensions
@@ -13,7 +14,7 @@ namespace MiniShop.Api.Extensions
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
             //services.AddSingleton<IResponseCacheService, ResponseCacheService>();
-            //services.AddScoped<ITokenService, TokenService>();
+            services.AddScoped<ITokenService, TokenService>();
             //services.AddScoped<IOrderService, OrderService>();
             //services.AddScoped<IPaymentService, PaymentService>();
             //services.AddScoped<IUnitOfWork, UnitOfWork>();
