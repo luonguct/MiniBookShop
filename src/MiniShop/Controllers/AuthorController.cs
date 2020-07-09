@@ -1,21 +1,17 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using MiniShop.Infrastructure.Data;
-using MiniShop.Core.Entities;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using MiniShop.Core.Interfaces;
-using AutoMapper;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using MiniShop.Api.Errors;
+using MiniShop.Core.Entities;
+using MiniShop.Core.Interfaces;
+using System.Collections.Generic;
 using System.Net;
+using System.Threading.Tasks;
 
 namespace MiniShop.Api.Controllers
 {
     public class AuthorController : BaseApiController
     {
         private readonly IGenericRepository<Author> _authorRepository;
-
 
         public AuthorController(IGenericRepository<Author> authorRepository)
         {
