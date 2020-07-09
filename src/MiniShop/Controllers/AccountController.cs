@@ -6,6 +6,7 @@ using MiniShop.Api.Errors;
 using MiniShop.Api.ViewModels;
 using MiniShop.Core.Entities;
 using MiniShop.Core.Interfaces;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace MiniShop.Api.Controllers
@@ -18,9 +19,9 @@ namespace MiniShop.Api.Controllers
         private readonly IMapper _mapper;
 
         public AccountController(
-            UserManager<AppUser> userManager, 
-            SignInManager<AppUser> signInManager, 
-            ITokenService tokenService, 
+            UserManager<AppUser> userManager,
+            SignInManager<AppUser> signInManager,
+            ITokenService tokenService,
             IMapper mapper)
         {
             _mapper = mapper;
@@ -44,6 +45,38 @@ namespace MiniShop.Api.Controllers
                 Email = user.Email,
                 Token = _tokenService.CreateToken(user),
                 DisplayName = user.DisplayName
+            };
+        }
+
+        [HttpGet("emailexists")]
+        public async Task<ActionResult<bool>> CheckEmailExistsAsync([FromQuery] string email)
+        {
+            return await _userManager.FindByEmailAsync(email) != null;
+        }
+
+        [HttpPost("register")]
+        public async Task<ActionResult<UserDto>> Register(RegisterViewModel registerViewVm)
+        {
+            if (CheckEmailExistsAsync(registerViewVm.Email).Result.Value)
+            {
+                return new BadRequestObjectResult(new ApiValidationErrorResponse { Errors = new[] { "Email address is in use" } });
+            }
+
+            var user = new AppUser
+            {
+                DisplayName = registerViewVm.DisplayName,
+                Email = registerViewVm.Email,
+                UserName = registerViewVm.Email
+            };
+
+            var result = await _userManager.CreateAsync(user, registerViewVm.Password);
+            if (!result.Succeeded) return BadRequest(new ApiResponse((int)HttpStatusCode.BadRequest));
+
+            return new UserDto
+            {
+                DisplayName = user.DisplayName,
+                Token = _tokenService.CreateToken(user),
+                Email = user.Email
             };
         }
     }
