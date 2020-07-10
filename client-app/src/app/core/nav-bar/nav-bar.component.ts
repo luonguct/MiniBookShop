@@ -15,6 +15,7 @@ export class NavBarComponent implements OnInit {
 
   ngOnInit(): void {
     this.basket$ = this.basketService.basket$;
+    console.log(this.basket$);
   }
 
 }

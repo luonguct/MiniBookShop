@@ -14,3 +14,9 @@ export class BasketItem {
   author: string;
   bookCategory: string;
 }
+
+export class BasketTotal {
+  shipping: number;
+  subtotal: number;
+  total: number;
+}

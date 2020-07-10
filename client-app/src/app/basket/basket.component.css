@@ -17,3 +17,18 @@
 .text-bold {
     font-weight: bold;
 }
+
+.table>thead>tr>th {
+    background: #008cba;
+    color: #fff;
+    padding: 10px;
+    border-bottom: 1px solid #dddddd;
+}
+
+.book-item {
+    text-decoration: none;
+}
+
+.book-item:hover {
+    color: #008cba;
+}
