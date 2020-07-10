@@ -1,0 +1,19 @@
+.inline-block {
+    display: inline-block;   
+}
+
+.ml-20 {
+    margin-left: 20px;
+}
+
+.align-middle {
+    vertical-align: middle;
+}
+
+.text-dark {
+    color: #414142;
+}
+
+.text-bold {
+    font-weight: bold;
+}
