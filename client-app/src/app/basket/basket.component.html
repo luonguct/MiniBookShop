@@ -78,26 +78,37 @@
   <tfoot>
     <tr>
       <td style="vertical-align: middle;">
-        <a href="#" class="btn btn-warning"
-          ><i class="fa fa-angle-left"></i> Continue Shopping</a
-        >
+        <a routerLink="/shop" class="btn btn-warning">
+          <i class="fa fa-angle-left"></i> Continue Shopping
+        </a>
       </td>
       <td colspan="2"></td>
       <td>
-        <ng-container *ngIf="(basketTotal$ | async)">
+        <ng-container *ngIf="basketTotal$ | async">
           <strong style="display: block;">
-            Sub Total: <span class="pull-right">{{ (basketTotal$ | async).subtotal  }}</span>
+            Sub Total:
+            <span class="pull-right">{{
+              (basketTotal$ | async).subtotal | number: "1.0-0"
+            }}</span>
           </strong>
           <strong style="display: block;">
-            Shipping: <span class="pull-right">{{ (basketTotal$ | async).shipping | number: "1.0-0" }}</span>
+            Shipping:
+            <span class="pull-right">{{
+              (basketTotal$ | async).shipping | number: "1.0-0"
+            }}</span>
           </strong>
-          <strong> Total: <span class="pull-right">{{ (basketTotal$ | async).total | number: "1.0-0" }}</span> </strong>
+          <strong>
+            Total:
+            <span class="pull-right">{{
+              (basketTotal$ | async).total | number: "1.0-0"
+            }}</span>
+          </strong>
         </ng-container>
       </td>
       <td style="vertical-align: middle;">
-        <a href="#" class="btn btn-success btn-block"
-          >Checkout <i class="fa fa-angle-right"></i
-        ></a>
+        <a routerLink="/checkout" class="btn btn-success btn-block">
+          Checkout <i class="fa fa-angle-right"></i>
+        </a>
       </td>
     </tr>
   </tfoot>
