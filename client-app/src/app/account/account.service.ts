@@ -21,10 +21,7 @@ export class AccountService {
       return of(null);
     }
 
-    let headers = new HttpHeaders();
-    headers = headers.set('Authorization', `Bearer ${token}`);
-
-    return this.http.get(`${environment.apiUrl}/account`, { headers }).pipe(
+    return this.http.get(`${environment.apiUrl}/account`).pipe(
       map((user: User) => {
         if (user) {
           localStorage.setItem('token', user.token);

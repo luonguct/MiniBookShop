@@ -1,118 +1,96 @@
 <table class="table table-borderless">
-  <thead class="thead-light">
-    <tr>
-      <th>
-        <div class="text-uppercase">Book</div>
-      </th>
-      <th>
-        <div class="text-uppercase">Price</div>
-      </th>
-      <th>
-        <div class="text-uppercase">Quantity</div>
-      </th>
-      <th>
-        <div class="text-uppercase">Total</div>
-      </th>
-      <th class="">
-        <div class="text-uppercase">Remove</div>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <div *ngIf="(basket$ | async) === null">
-      <h2>There are no items in your basket</h2>
-    </div>
+    <thead class="thead-light">
+        <tr>
+            <th>
+                <div class="text-uppercase">Book</div>
+            </th>
+            <th>
+                <div class="text-uppercase">Price</div>
+            </th>
+            <th>
+                <div class="text-uppercase">Quantity</div>
+            </th>
+            <th>
+                <div class="text-uppercase">Total</div>
+            </th>
+            <th class="">
+                <div class="text-uppercase">Remove</div>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <div *ngIf="(basket$ | async) === null">
+            <h2>There are no items in your basket</h2>
+        </div>
 
-    <ng-container *ngIf="basket$ | async as basket">
-      <tr *ngFor="let item of basket.items">
-        <td scope="row">
-          <div class="">
-            <img
-              style="max-height: 50px;"
-              src="{{ item.imageUrl }}"
-              alt="{{ item.bookName }}"
-            />
-            <div class="ml-20 inline-block align-middle">
-              <h5>
-                <a
-                  class="text-dark text-bold book-item"
-                  style="text-decoration: none;"
-                  routerLink="/shop/{{ item.id }}"
-                >
+        <ng-container *ngIf="basket$ | async as basket">
+            <tr *ngFor="let item of basket.items">
+                <td scope="row">
+                    <div class="">
+                        <img style="max-height: 50px;" src="{{ item.imageUrl }}" alt="{{ item.bookName }}" />
+                        <div class="ml-20 inline-block align-middle">
+                            <h5>
+                                <a class="text-dark text-bold book-item" style="text-decoration: none;" routerLink="/shop/{{ item.id }}">
                   {{ item.bookName }}
                 </a>
-              </h5>
-            </div>
-          </div>
-        </td>
-        <td class="align-middle">
-          <strong> {{ item.price | number: "1.0-0" }} </strong>
-        </td>
-        <td class="align-middle">
-          <div>
-            <i
-              (click)="decrementItemQuantity(item)"
-              class="fa fa-minus-circle"
-              style="cursor: pointer; font-size: 22px; color: #008cba;"
-            ></i
-            ><span class="text-bold" style="font-size: 20px;"> {{ item.quantity }} </span
-            ><i
-              (click)="incrementItemQuantity(item)"
-              class="fa fa-plus-circle"
-              style="cursor: pointer; font-size: 22px; color: #008cba;"
-            ></i>
-          </div>
-        </td>
-        <td class="align-middle">
-          <strong> {{ item.price | number: "1.0-0" }} </strong>
-        </td>
-        <td class="align-middle">
-          <a class="text-danger"
-            ><i
-             (click)="removeBasketItem(item)"
-              class="fa fa-trash"
-              style="font-size: 20px; cursor: pointer;"
-            ></i
-          ></a>
-        </td>
-      </tr>
-    </ng-container>
-  </tbody>
-  <tfoot>
-    <tr>
-      <td style="vertical-align: middle;">
-        <a routerLink="/shop" class="btn btn-warning">
-          <i class="fa fa-angle-left"></i> Continue Shopping
-        </a>
-      </td>
-      <td colspan="2"></td>
-      <td>
-        <ng-container *ngIf="basketTotal$ | async">
-          <strong style="display: block;">
+                            </h5>
+                        </div>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <strong> {{ item.price | number: "1.0-0" }} </strong>
+                </td>
+                <td class="align-middle">
+                    <div>
+                        <i (click)="decrementItemQuantity(item)" class="fa fa-minus-circle" style="cursor: pointer; font-size: 22px; color: #008cba;"></i><span class="text-bold" style="font-size: 20px;"> {{ item.quantity }} </span><i (click)="incrementItemQuantity(item)"
+                            class="fa fa-plus-circle" style="cursor: pointer; font-size: 22px; color: #008cba;"></i>
+                    </div>
+                </td>
+                <td class="align-middle">
+                    <strong> {{ item.price | number: "1.0-0" }} </strong>
+                </td>
+                <td class="align-middle">
+                    <a class="text-danger"><i (click)="removeBasketItem(item)" class="fa fa-trash"
+              style="font-size: 20px; cursor: pointer;"></i></a>
+                </td>
+            </tr>
+        </ng-container>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td style="vertical-align: middle;">
+                <a routerLink="/shop" class="btn btn-warning">
+                    <i class="fa fa-angle-left"></i> Continue Shopping
+                </a>
+            </td>
+            <td colspan="2"></td>
+            <td>
+                <ng-container *ngIf="basketTotal$ | async">
+                    <strong style="display: block;">
             Sub Total:
             <span class="pull-right">{{
               (basketTotal$ | async).subtotal | number: "1.0-0"
             }}</span>
           </strong>
-          <strong style="display: block;">
+                    <strong style="display: block;">
             Shipping:
             <span class="pull-right">{{
               (basketTotal$ | async).shipping | number: "1.0-0"
             }}</span>
           </strong>
-          <strong>
+                    <strong>
             Total:
             <span class="pull-right">{{
               (basketTotal$ | async).total | number: "1.0-0"
             }}</span>
           </strong>
-        </ng-container>
-      </td>
-      <td style="vertical-align: middle;">
-        <a routerLink="/checkout" class="btn btn-success btn-block">
+                </ng-container>
+            </td>
+            <td style="vertical-align: middle;">
+                <a routerLink="/order-summary" class="btn btn-success btn-block">
           Checkout <i class="fa fa-angle-right"></i>
         </a>
-      </td>
-    </tr>
-  </tfoot>
+            </td>
+        </tr>
+    </tfoot>
 </table>

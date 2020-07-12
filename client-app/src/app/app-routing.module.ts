@@ -8,8 +8,10 @@ const routes: Routes = [
   { path: 'shop', loadChildren: () => import('./shopping/shopping.module').then(mod => mod.ShoppingModule) },
   { path: 'about', loadChildren: () => import('./about/about.module').then(mod => mod.AboutModule) },
   { path: 'basket', loadChildren: () => import('./basket/basket.module').then(mod => mod.BasketModule) },
-  { path: 'checkout', canActivate: [AuthGuard], loadChildren: () => import('./checkout/checkout.module').then(mod => mod.CheckoutModule) },
   { path: 'account', loadChildren: () => import('./account/account.module').then(mod => mod.AccountModule) },
+  { path: 'account', loadChildren: () => import('./account/account.module').then(mod => mod.AccountModule) },
+  { path: 'order-summary',canActivate: [AuthGuard], loadChildren: () => import('./order-summary/order-summary.module').then(mod => mod.OrderSummaryModule) },
+  { path: 'checkout-success',canActivate: [AuthGuard], loadChildren: () => import('./checkout-success/checkout-success.module').then(mod => mod.CheckoutSuccessModule) },
 
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
