@@ -12,21 +12,36 @@ namespace MiniShop.Core.Entities
         {
         }
 
-        public Order(string firstName, string lastName, int phoneNumber, string address, string province, string zipcode, double total, List<OrderItem> orderItems)
+        //public Order(string firstName, string lastName, int phoneNumber, string address, string province, string zipcode, double total, List<OrderItem> orderItems)
+        //{
+        //    FirstName = firstName;
+        //    LastName = lastName;
+        //    PhoneNumber = phoneNumber;
+        //    Address = address;
+        //    Province = province;
+        //    Zipcode = zipcode;
+        //    Total = total;
+        //    OrderItems = orderItems;
+        //}
+
+        public Order(List<OrderItem> orderItems, Order order)
         {
-            FirstName = firstName;
-            LastName = lastName;
-            PhoneNumber = phoneNumber;
-            Address = address;
-            Province = province;
-            Zipcode = zipcode;
-            Total = total;
             OrderItems = orderItems;
+            Email = order.Email;
+            FirstName = order.FirstName;
+            LastName = order.LastName;
+            PhoneNumber = order.PhoneNumber;
+            Address = order.Address;
+            Province = order.Province;
+            Zipcode = order.Zipcode;
+            Total = order.Total;
         }
+
 
         [Key]
         public int OrderId { get; set; }
         public DateTimeOffset OrderDate { get; set; } = DateTimeOffset.Now;
+        public string Email { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int PhoneNumber { get; set; }

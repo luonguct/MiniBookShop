@@ -16,6 +16,9 @@ namespace MiniShop.Api.Helpers
 
             CreateMap<CustomerBasketViewModel, CustomerBasket>();
             CreateMap<BasketItemViewModel, BasketItem>();
+            CreateMap<AddressDto, Order>();
+            CreateMap<Order, OrderToReturnDto>();
+            CreateMap<OrderItem, OrderItemDto>();
         }
     }
 }

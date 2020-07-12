@@ -10,7 +10,7 @@ namespace MiniShop.Core.Entities
         {
         }
 
-        public OrderItem(int bookId, string bookTitle, string imageUrl, decimal price, int quantity)
+        public OrderItem(int bookId, string bookTitle, string imageUrl, double price, int quantity)
         {
             BookId = bookId;
             BookTitle = bookTitle;
@@ -25,7 +25,7 @@ namespace MiniShop.Core.Entities
         public int BookId { get; set; }
         public string BookTitle { get; set; }
         public string ImageUrl { get; set; }
-        public decimal Price { get; set; }
+        public double Price { get; set; }
         public int Quantity { get; set; }
     }
 }
