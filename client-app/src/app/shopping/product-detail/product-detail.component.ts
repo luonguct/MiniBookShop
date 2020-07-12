@@ -17,7 +17,7 @@ export class ProductDetailComponent implements OnInit {
     private shoppingService: ShoppingService,
     private activateRoute: ActivatedRoute,
     private basketService: BasketService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.loadBook();
@@ -28,7 +28,9 @@ export class ProductDetailComponent implements OnInit {
   }
 
   incrementQuantity() {
-    this.quantity++;
+    if (this.quantity < 5) {
+      this.quantity++;
+    }
   }
 
   decrementQuantity() {
