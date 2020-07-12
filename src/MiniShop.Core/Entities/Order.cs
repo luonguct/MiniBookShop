@@ -12,17 +12,15 @@ namespace MiniShop.Core.Entities
         {
         }
 
-        //public Order(string firstName, string lastName, int phoneNumber, string address, string province, string zipcode, double total, List<OrderItem> orderItems)
-        //{
-        //    FirstName = firstName;
-        //    LastName = lastName;
-        //    PhoneNumber = phoneNumber;
-        //    Address = address;
-        //    Province = province;
-        //    Zipcode = zipcode;
-        //    Total = total;
-        //    OrderItems = orderItems;
-        //}
+        public Order(Order order)
+        {
+            FirstName = order.FirstName;
+            LastName = order.LastName;
+            PhoneNumber = order.PhoneNumber;
+            Address = order.Address;
+            Province = order.Province;
+            Zipcode = order.Zipcode;
+        }
 
         public Order(List<OrderItem> orderItems, Order order)
         {

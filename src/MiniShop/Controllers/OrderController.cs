@@ -27,7 +27,7 @@ namespace MiniShop.Api.Controllers
         {
             var email = HttpContext.User.RetrieveEmailFromPrincipal();
 
-            var address = _mapper.Map<AddressDto, Order>(orderDto.Address);
+            var address = _mapper.Map<OrderDto, Order>(orderDto);
 
             var order = await _orderService.CreateOrderAsync(email, orderDto.BasketId, address);
 
