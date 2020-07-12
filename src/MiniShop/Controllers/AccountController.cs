@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MiniShop.Api.Dto;
 using MiniShop.Api.Errors;
+using MiniShop.Api.Extensions;
 using MiniShop.Api.ViewModels;
 using MiniShop.Core.Entities;
 using MiniShop.Core.Interfaces;
@@ -28,6 +30,20 @@ namespace MiniShop.Api.Controllers
             _tokenService = tokenService;
             _signInManager = signInManager;
             _userManager = userManager;
+        }
+
+        [Authorize]
+        [HttpGet]
+        public async Task<ActionResult<UserDto>> GetCurrentUser()
+        {
+            var user = await _userManager.FindByEmailFromClaimsPrinciple(HttpContext.User);
+
+            return new UserDto
+            {
+                Email = user.Email,
+                Token = _tokenService.CreateToken(user),
+                DisplayName = user.DisplayName
+            };
         }
 
         [HttpPost("login")]
@@ -75,7 +91,7 @@ namespace MiniShop.Api.Controllers
             return new UserDto
             {
                 DisplayName = user.DisplayName,
-                //Token = _tokenService.CreateToken(user),
+                Token = _tokenService.CreateToken(user),
                 Email = user.Email
             };
         }

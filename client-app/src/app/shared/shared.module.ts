@@ -11,11 +11,14 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     PaginationModule.forRoot(),
     RouterModule,
+    ReactiveFormsModule,
     FormsModule
   ],
   exports: [
     PaginationModule,
     PagerComponent,
+    ReactiveFormsModule,
+    FormsModule
   ],
 })
 export class SharedModule {}

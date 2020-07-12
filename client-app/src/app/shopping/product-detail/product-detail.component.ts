@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ShoppingService } from '../shopping.service';
 import { Book } from '../../shared/models/book';
 import { ActivatedRoute } from '@angular/router';
+import { BasketService } from '../../basket/basket.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -10,13 +11,30 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProductDetailComponent implements OnInit {
   book: Book;
+  quantity = 1;
+
   constructor(
     private shoppingService: ShoppingService,
-    private activateRoute: ActivatedRoute
+    private activateRoute: ActivatedRoute,
+    private basketService: BasketService
   ) {}
 
   ngOnInit(): void {
     this.loadBook();
+  }
+
+  addItemToBasket() {
+    this.basketService.addItemToBasket(this.book, this.quantity);
+  }
+
+  incrementQuantity() {
+    this.quantity++;
+  }
+
+  decrementQuantity() {
+    if (this.quantity > 1) {
+      this.quantity--;
+    }
   }
 
   loadBook() {

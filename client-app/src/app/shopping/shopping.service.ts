@@ -1,12 +1,12 @@
 import { BookCategory } from './../shared/models/bookCategory';
 import { Injectable } from '@angular/core';
-import { environment } from '../../environments/environment';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Pagination } from '../shared/models/pagination';
 import { Book } from '../shared/models/book';
 import { Author } from '../shared/models/author';
 import { ShopParams } from '../shared/models/ShopParams';
 import { map, delay } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',

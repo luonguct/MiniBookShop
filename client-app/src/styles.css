@@ -1,27 +1,75 @@
 /* You can add global styles to this file, and also import other style files */
-/* @import "~bootswatch/dist/yeti/variables"; */
-@import "../node_modules/bootswatch/yeti/bootstrap.min.css";
 
+
+/* @import "~bootswatch/dist/yeti/variables"; */
+
+@import "../node_modules/bootswatch/yeti/bootstrap.min.css";
 @media (min-width: 768px) {
     .container {
-      width: 750px;
+        width: 750px;
     }
-  }
+}
 
 @media (min-width: 992px) {
-  .container {
-    width: 970px;
-  }
+    .container {
+        width: 970px;
+    }
 }
 
 @media (min-width: 1200px) {
     .container {
-      width: 1170px;
+        width: 1170px;
     }
-  }
+}
 
-@media (min-width: 768px){
+@media (min-width: 768px) {
     .container {
         max-width: 888px;
     }
+}
+
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus {
+    outline: 0;
+    outline-offset: 0;
+    box-shadow: none;
+}
+
+.form-label-group {
+    margin-bottom: 15px;
+}
+
+.justify-content-center {
+    -webkit-box-pack: center !important;
+    justify-content: center !important;
+    display: flex;
+}
+
+.form-control {
+    box-shadow: none;
+}
+
+.form-control:focus {
+    outline: 0;
+    box-shadow: none;
+    border-color: #008cba;
+}
+
+.text-danger {
+    font-weight: 500;
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.invalid-input {
+    border: 1px solid #F04124 !important;
+}
+
+.form-label-group:last-child {
+    margin-bottom: 0;
 }

@@ -1,0 +1,68 @@
+<div class="justify-content-center">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+        <form [formGroup]="registerForm" (ngSubmit)="onRegister()" style="margin-top:25%; margin-bottom: 25%; padding:20px; border: 1px solid #ccc">
+            <div class="text-center mb-4">
+                <h1 style="color: #333; padding-bottom: 20px; padding-top:0;">Register</h1>
+            </div>
+
+            <div class="form-label-group">
+                <input [ngClass]="(!registerForm.get('displayName').valid
+                && registerForm.touched) ? 'invalid-input' : ''" formControlName="displayName" class="form-control" id="DisplayName" placeholder="Display Name" type="text">
+
+                <span class="text-danger" *ngIf="registerForm.get('displayName').invalid
+                    && registerForm.touched
+                    && registerForm.get('displayName').errors['required']">
+                    Display Name is required
+                </span>
+            </div>
+
+            <div class="form-label-group">
+                <input [ngClass]="(!registerForm.get('email').valid
+                    && registerForm.touched) ? 'invalid-input' : ''" formControlName="email" class="form-control" id="EmailAddress" placeholder="Email Address" type="email">
+
+                <span class="text-danger" *ngIf="registerForm.get('email').invalid
+                    && registerForm.touched
+                    && registerForm.get('email').errors['required']">
+                    Email Address is required
+                </span>
+
+                <span class="text-danger" *ngIf="registerForm.get('email').invalid
+                    && registerForm.touched
+                    && registerForm.get('email').errors['pattern']">
+                    Email Address is not valid
+                </span>
+
+                <span class="text-danger" *ngIf="registerForm.get('email').invalid
+                    && registerForm.touched
+                    && registerForm.get('email').errors.emailExists">
+                    Email address is in use
+                </span>
+            </div>
+
+            <div class="form-label-group">
+                <input [ngClass]="(!registerForm.get('password').valid
+                && registerForm.touched) ? 'invalid-input' : ''" formControlName="password" class="form-control" id="Password" placeholder="Password" type="password">
+                <span class="text-danger" *ngIf="registerForm.get('password').invalid
+                && registerForm.touched
+                && registerForm.get('password').errors['required']">
+                    Password is required
+                </span>
+
+                <span class="text-danger" *ngIf="registerForm.get('password').invalid
+                && registerForm.touched
+                && registerForm.get('password').errors['pattern']">
+                    Password must contain at least one digit, one lower case, one upper case, 6 to 10 characters from
+                    mentioned
+                </span>
+            </div>
+
+            <div class="text-danger list-unstyled" *ngIf="errors">
+                <li *ngFor="let error of errors">
+                    {{error}}
+                </li>
+            </div>
+
+            <button [disabled]="registerForm.invalid" type="submit" class="btn btn-md btn-sign-in btn-block">Register</button>
+        </form>
+    </div>
+</div>
