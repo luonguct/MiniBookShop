@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using MiniShop.Api.Dto;
 using MiniShop.Api.Errors;
 using MiniShop.Api.Extensions;
+using MiniShop.Api.ViewModels;
 using MiniShop.Core.Entities;
 using MiniShop.Core.Interfaces;
 using System.Collections.Generic;
@@ -23,13 +24,13 @@ namespace MiniShop.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Order>> CreateOrder(OrderDto orderDto)
+        public async Task<ActionResult<Order>> CreateOrder(OrderViewModel orderVm)
         {
             var email = HttpContext.User.RetrieveEmailFromPrincipal();
 
-            var address = _mapper.Map<OrderDto, Order>(orderDto);
+            var address = _mapper.Map<OrderViewModel, Order>(orderVm);
 
-            var order = await _orderService.CreateOrderAsync(email, orderDto.BasketId, address);
+            var order = await _orderService.CreateOrderAsync(email, orderVm.BasketId, address);
 
             if (order == null) return BadRequest(new ApiResponse(400, "Problem creating order"));
 
@@ -37,13 +38,13 @@ namespace MiniShop.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<OrderDto>>> GetOrdersForUser()
+        public async Task<ActionResult<List<UserOrderDto>>> GetOrdersForUser()
         {
             var email = HttpContext.User.RetrieveEmailFromPrincipal();
 
             var orders = await _orderService.GetOrdersForUserAsync(email);
 
-            return Ok(_mapper.Map<List<Order>, List<OrderToReturnDto>>(orders));
+            return Ok(_mapper.Map<List<Order>, List<UserOrderDto>>(orders));
         }
 
         [HttpGet("{id}")]

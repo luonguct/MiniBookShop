@@ -17,11 +17,11 @@ namespace MiniShop.Api.Helpers
             CreateMap<CustomerBasketViewModel, CustomerBasket>();
             CreateMap<BasketItemViewModel, BasketItem>();
 
-            CreateMap<OrderDto, Order>();
-
+            CreateMap<OrderViewModel, Order>();
+            CreateMap<Order, UserOrderDto>();
             CreateMap<Order, OrderToReturnDto>();
-           
-            CreateMap<OrderItem, OrderItemDto>();
+            CreateMap<OrderItem, OrderItemDto>()
+                .ForMember(d => d.ImageUrl, o => o.MapFrom<OrderItemImageUrlResolver>());
         }
     }
 }

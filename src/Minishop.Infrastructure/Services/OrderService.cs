@@ -1,10 +1,8 @@
 ﻿using MiniShop.Core.Entities;
 using MiniShop.Core.Interfaces;
 using MiniShop.Core.Specifications;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace MiniShop.Infrastructure.Services
@@ -34,17 +32,14 @@ namespace MiniShop.Infrastructure.Services
                 items.Add(orderItem);
             }
 
-            var total = items.Sum(item => item.Price * item.Quantity);
-
             // create order
-            order.Total = total;
+            order.Total = items.Sum(item => item.Price * item.Quantity);
             order.Email = email;
             var newOrder = new Order(items, order);
-            _unitOfWork.Repository<Order>().Add(order);
+            _unitOfWork.Repository<Order>().Add(newOrder);
 
             // save to db
             var result = await _unitOfWork.Complete();
-
             if (result <= 0) return null;
 
             // return order
