@@ -73,3 +73,38 @@
 .form-label-group:last-child {
     margin-bottom: 0;
 }
+
+.inline-block {
+    display: inline-block;   
+}
+
+.ml-20 {
+    margin-left: 20px;
+}
+
+.align-middle {
+    vertical-align: middle;
+}
+
+.text-dark {
+    color: #414142;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.table>thead>tr>th {
+    background: #008cba;
+    color: #fff;
+    padding: 10px;
+    border-bottom: 1px solid #dddddd;
+}
+
+.book-item {
+    text-decoration: none;
+}
+
+.book-item:hover {
+    color: #008cba;
+}

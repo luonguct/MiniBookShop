@@ -9,7 +9,7 @@ import { RouterModule } from '@angular/router';
   declarations: [PagerComponent],
   imports: [
     CommonModule,
-    PaginationModule.forRoot(),
+    PaginationModule.forRoot(), 
     RouterModule,
     ReactiveFormsModule,
     FormsModule

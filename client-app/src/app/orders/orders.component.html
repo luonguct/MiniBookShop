@@ -1,0 +1,44 @@
+<table class="table table-borderless">
+    <thead class="thead-light">
+        <tr>
+            <th>
+                <div class="text-uppercase">Order</div>
+            </th>
+            <th>
+                <div class="text-uppercase">Date</div>
+            </th>
+            <th>
+                <div class="text-uppercase">Total</div>
+            </th>
+            <th>
+                <div class="text-uppercase">Status</div>
+            </th>
+            <th class="">
+                <div class="text-uppercase">Action</div>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngIf="orders">
+            <tr *ngFor="let order of orders">
+                <td class="align-middle">
+                    <strong> #{{ order.orderId }} </strong>
+                </td>
+                <td class="align-middle">
+                    <strong> {{ order.orderDate | date: 'medium' }} </strong>
+                </td>
+                <td class="align-middle">
+                    <strong> {{ order.total |  number: "1.0-0"  }} </strong>
+                </td>
+                <td class="align-middle">
+                    <strong> {{ order.status }} </strong>
+                </td>
+                <td class="align-middle">
+                    <a routerLink="/orders/{{ order.orderId }}"> 
+                        <i class="fa fa-pencil-square-o" style="font-size: 20px; cursor: pointer;"></i>
+                    </a>
+                </td>
+            </tr>
+        </ng-container>
+    </tbody>
+</table>

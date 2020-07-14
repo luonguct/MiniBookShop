@@ -1,0 +1,127 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-xs-12">
+                <h1>Order # {{ order.orderId }}</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div>
+                    <h4 class="justify-content-between align-items-center mb-3">
+                        <span class="text-info">PickUp Details:</span>
+                    </h4>
+                </div>
+                <div class="row" style="margin-bottom: 20px;">
+                    <div class="col-lg-3">
+                        <label>First Name</label>
+                    </div>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control" value="{{ order.firstName }}" readonly />
+                    </div>
+                </div>
+
+                <div class="row" style="margin-bottom: 20px;">
+                    <div class="col-lg-3">
+                        <label>Last Name</label>
+                    </div>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control" value="{{ order.lastName }}" readonly />
+                    </div>
+                </div>
+
+                <div class="row" style="margin-bottom: 20px;">
+                    <div class="col-lg-3">
+                        <label>Phone Number</label>
+                    </div>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control" value="{{ order.lastName }}" readonly />
+                    </div>
+                </div>
+
+                <div class="row" style="margin-bottom: 20px;">
+                    <div class="col-lg-3">
+                        <label>Address</label>
+                    </div>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control" value="{{ order.address }}" readonly />
+                    </div>
+                </div>
+
+                <div class="row" style="margin-bottom: 20px;">
+                    <div class="col-lg-3">
+                        <label>Province</label>
+                    </div>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control" value="{{ order.province }}" readonly />
+                    </div>
+                </div>
+
+                <div class="row" style="margin-bottom: 20px;">
+                    <div class="col-lg-3">
+                        <label>Zip Code</label>
+                    </div>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control" value="{{ order.zipcode }}" readonly />
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <h4 class="">
+                    <span class="text-info">Order Summary:</span>
+                </h4>
+
+                <ul class="list-group">
+                    <ng-container *ngIf="order.orderItems">
+                        <li *ngFor="let item of order.orderItems" class="list-group-item"
+                            style="justify-content: space-between;display: flex;padding: 5px 10px;">
+                            <div>
+                                <img class="img-fluid" src="{{ item.imageUrl }}" width="50" height="50" />
+                            </div>
+                            <div style="margin-left: 15px;">
+                                <h4 style="margin-top: 0; margin-bottom: 5px;">
+                                    {{ item.bookName }}
+                                </h4>
+                                <p class="text-muted">
+                                    Quantity:
+                                    <span style="font-weight: 600;">{{ item.quantity }}</span>
+                                </p>
+                            </div>
+                            <div style="margin-top: 7px; margin-left: auto;">
+                                <span class="text-muted" style="font-weight: 600;">{{ item.price | number: "1.0-0" }}
+                                </span>
+                            </div>
+                        </li>
+                    </ng-container>
+
+                    <li class="list-group-item bg-light" style="padding: 20px 10px;">
+                        <p style="display: inline-block; font-weight: 600; margin: 0;" class="text-info">
+                            Total Price (VND)
+                        </p>
+                        <strong class="text-info pull-right" style="font-weight: 600;">
+                            {{ order.total | number: "1.0-0" }}
+                        </strong>
+                    </li>
+                </ul>
+
+                <button  type="button" class="btn btn-primary" style="width: 100%;">
+                     {{ order.status }}
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel-footer">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <button type="button" class="btn btn-warning" routerLink="/orders">
+                    <i class="fa fa-angle-left"></i> Back to orders
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

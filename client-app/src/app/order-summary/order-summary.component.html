@@ -1,164 +1,295 @@
 <div class="panel panel-default">
-    <div class="panel-heading">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-xs-12">
-                <h1>Order Summary</h1>
-            </div>
-        </div>
+  <div class="panel-heading">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-xs-12">
+        <h1>Order Summary</h1>
+      </div>
     </div>
+  </div>
 
-    <div class="panel-body">
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                <div>
-                    <h4 class=" justify-content-between align-items-center mb-3">
-                        <span class="text-info">PickUp Details:</span>
-                    </h4>
-                </div>
-
-                <div class="row" style="margin-bottom: 20px;">
-                    <div class="col-lg-3">
-                        <label>Email</label>
-                    </div>
-                    <div class="col-lg-9">
-                        <input type="email" class="form-control" placeholder="Email" value="">
-                    </div>
-                </div>
-
-
-                <div class="row" style="margin-bottom: 20px;">
-                    <div class="col-lg-3">
-                        <label>Display Name</label>
-                    </div>
-                    <div class="col-lg-9">
-                        <input type="text" class="form-control" placeholder="Display Name" value="">
-                    </div>
-                </div>
-
-                <div class="row" style="margin-bottom: 20px;">
-                    <div class="col-lg-3">
-                        <label>First Name</label>
-                    </div>
-                    <div class="col-lg-9">
-                        <input type="text" class="form-control" placeholder="First Name" value="">
-                    </div>
-                </div>
-
-                <div class="row" style="margin-bottom: 20px;">
-                    <div class="col-lg-3">
-                        <label>Last Name</label>
-                    </div>
-                    <div class="col-lg-9">
-                        <input type="text" class="form-control" placeholder="Last Name" value="">
-                    </div>
-                </div>
-
-                <div class="row" style="margin-bottom: 20px;">
-                    <div class="col-lg-3">
-                        <label>Phone Number</label>
-                    </div>
-                    <div class="col-lg-9">
-                        <input type="text" class="form-control" placeholder="Phone" value="">
-                    </div>
-                </div>
-
-                <div class="row" style="margin-bottom: 20px;">
-                    <div class="col-lg-3">
-                        <label>Address</label>
-                    </div>
-                    <div class="col-lg-9">
-                        <input type="text" class="form-control" placeholder="Address" value="">
-                    </div>
-                </div>
-
-                <div class="row" style="margin-bottom: 20px;">
-                    <div class="col-lg-3">
-                        <label>Province</label>
-                    </div>
-                    <div class="col-lg-9">
-                        <input type="text" class="form-control" placeholder="Province" value="">
-                    </div>
-                </div>
-
-                <div class="row" style="margin-bottom: 20px;">
-                    <div class="col-lg-3">
-                        <label>Zip Code</label>
-                    </div>
-                    <div class="col-lg-9">
-                        <input type="text" class="form-control" placeholder="Zip Code" value="">
-                    </div>
-                </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <div>
+          <h4 class="justify-content-between align-items-center mb-3">
+            <span class="text-info">PickUp Details:</span>
+          </h4>
+        </div>
+        <form [formGroup]="orderForm">
+          <div class="row" style="margin-bottom: 20px;">
+            <div class="col-lg-3">
+              <label>Email</label>
             </div>
+            <div class="col-lg-9">
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Email"
+                readonly
+                formControlName="email"
+              />
+            </div>
+          </div>
 
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                <h4 class="">
-                    <span class="text-info">Order Summary:</span>
+          <div class="row" style="margin-bottom: 20px;">
+            <div class="col-lg-3">
+              <label>Display Name</label>
+            </div>
+            <div class="col-lg-9">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Display Name"
+                readonly
+                formControlName="displayName"
+              />
+            </div>
+          </div>
+
+          <div class="row" style="margin-bottom: 20px;">
+            <div class="col-lg-3">
+              <label>First Name</label>
+            </div>
+            <div class="col-lg-9">
+              <input
+                [ngClass]="
+                  !orderForm.get('firstName').valid &&
+                  orderForm.get('firstName').touched
+                    ? 'invalid-input'
+                    : ''
+                "
+                type="text"
+                class="form-control"
+                placeholder="First Name"
+                formControlName="firstName"
+              />
+              <span
+                class="text-danger"
+                *ngIf="
+                  orderForm.get('firstName').invalid &&
+                  orderForm.get('firstName').touched &&
+                  orderForm.get('firstName').errors['required']
+                "
+              >
+                FirstName is required
+              </span>
+            </div>
+          </div>
+
+          <div class="row" style="margin-bottom: 20px;">
+            <div class="col-lg-3">
+              <label>Last Name</label>
+            </div>
+            <div class="col-lg-9">
+              <input
+                [ngClass]="
+                  !orderForm.get('lastName').valid &&
+                  orderForm.get('lastName').touched
+                    ? 'invalid-input'
+                    : ''
+                "
+                type="text"
+                class="form-control"
+                placeholder="Last Name"
+                formControlName="lastName"
+              />
+              <span
+                class="text-danger"
+                *ngIf="
+                  orderForm.get('lastName').invalid &&
+                  orderForm.get('lastName').touched &&
+                  orderForm.get('lastName').errors['required']
+                "
+              >
+                LastName is required
+              </span>
+            </div>
+          </div>
+
+          <div class="row" style="margin-bottom: 20px;">
+            <div class="col-lg-3">
+              <label>Phone Number</label>
+            </div>
+            <div class="col-lg-9">
+              <input
+                [ngClass]="
+                  !orderForm.get('phoneNumber').valid &&
+                  orderForm.get('phoneNumber').touched
+                    ? 'invalid-input'
+                    : ''
+                "
+                type="number"
+                class="form-control"
+                placeholder="Phone"
+                formControlName="phoneNumber"
+              />
+              <span
+                class="text-danger"
+                *ngIf="
+                  orderForm.get('phoneNumber').invalid &&
+                  orderForm.get('phoneNumber').touched &&
+                  orderForm.get('phoneNumber').errors['required']
+                "
+              >
+                PhoneNumber is required
+              </span>
+            </div>
+          </div>
+
+          <div class="row" style="margin-bottom: 20px;">
+            <div class="col-lg-3">
+              <label>Address</label>
+            </div>
+            <div class="col-lg-9">
+              <input
+                [ngClass]="
+                  !orderForm.get('address').valid &&
+                  orderForm.get('address').touched
+                    ? 'invalid-input'
+                    : ''
+                "
+                type="text"
+                class="form-control"
+                placeholder="Address"
+                formControlName="address"
+              />
+              <span
+                class="text-danger"
+                *ngIf="
+                  orderForm.get('address').invalid &&
+                  orderForm.get('address').touched &&
+                  orderForm.get('address').errors['required']
+                "
+              >
+                Address is required
+              </span>
+            </div>
+          </div>
+
+          <div class="row" style="margin-bottom: 20px;">
+            <div class="col-lg-3">
+              <label>Province</label>
+            </div>
+            <div class="col-lg-9">
+              <input
+                [ngClass]="
+                  !orderForm.get('province').valid &&
+                  orderForm.get('province').touched
+                    ? 'invalid-input'
+                    : ''
+                "
+                type="text"
+                class="form-control"
+                placeholder="Province"
+                formControlName="province"
+              />
+              <span
+                class="text-danger"
+                *ngIf="
+                  orderForm.get('province').invalid &&
+                  orderForm.get('province').touched &&
+                  orderForm.get('province').errors['required']
+                "
+              >
+                Province is required
+              </span>
+            </div>
+          </div>
+
+          <div class="row" style="margin-bottom: 20px;">
+            <div class="col-lg-3">
+              <label>Zip Code</label>
+            </div>
+            <div class="col-lg-9">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Zip Code"
+                formControlName="zipCode"
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <h4 class="">
+          <span class="text-info">Order Summary:</span>
+        </h4>
+
+        <ul class="list-group">
+          <ng-container *ngIf="basket$ | async as basket">
+            <li
+              *ngFor="let item of basket.items"
+              class="list-group-item"
+              style="
+                justify-content: space-between;
+                display: flex;
+                padding: 5px 10px;
+              "
+            >
+              <div>
+                <img
+                  class="img-fluid"
+                  src="{{ item.imageUrl }}"
+                  width="50"
+                  height="50"
+                />
+              </div>
+              <div style="margin-left: 15px;">
+                <h4 style="margin-top: 0; margin-bottom: 5px;">
+                  {{ item.bookName }}
                 </h4>
+                <p class="text-muted">
+                  Quantity:
+                  <span style="font-weight: 600;">{{ item.quantity }}</span>
+                </p>
+              </div>
+              <div style="margin-top: 7px; margin-left: auto;">
+                <span class="text-muted" style="font-weight: 600;"
+                  >{{ item.price | number: "1.0-0" }}
+                </span>
+              </div>
+            </li>
+          </ng-container>
 
-                <ul class="list-group ">
-                    <li class="list-group-item"
-                        style="justify-content: space-between; display: flex; padding: 5px 10px;">
-                        <div>
-                            <img class=" img-fluid" src="https://i.imgur.com/6oHix28.jpg" width="62" height="62">
-                        </div>
-                        <div style="margin-top:auto; margin-bottom: auto;">
-                            <h4 style="margin-bottom: 5px; margin-top:0; max-height: 40px; overflow:hidden ">Giants and Thieves</h4>
-                            <p class="text-muted">Quantity: 3</p>
-                        </div>
-                        <div style="margin-top:7px; margin-left:auto">
-                            <span class="text-muted">$270 </span>
-                        </div>
-                    </li>
+          <li class="list-group-item bg-light" style="padding: 20px 10px;">
+            <p
+              style="display: inline-block; font-weight: 600; margin: 0;"
+              class="text-info"
+            >
+              Total Price (VND)
+            </p>
 
-                    <li class="list-group-item"
-                        style="justify-content: space-between; display: flex; padding: 5px 10px;">
-                        <div>
-                            <img class=" img-fluid" src="https://i.imgur.com/6oHix28.jpg" width="62" height="62">
-                        </div>
-                        <div style="margin-top:auto; margin-bottom: auto;">
-                            <h4 style="margin-bottom: 5px; margin-top:0; max-height: 40px; overflow:hidden">Giants and Thieves</h4>
-                            <p class="text-muted">Quantity: 3</p>
-                        </div>
-                        <div style="margin-top:7px; margin-left:auto">
-                            <span class="text-muted">$270 </span>
-                        </div>
-                    </li>
-
-                    <li class="list-group-item"
-                        style="justify-content: space-between; display: flex; padding: 5px 10px;">
-                        <div>
-                            <img class=" img-fluid" src="https://i.imgur.com/6oHix28.jpg" width="62" height="62">
-                        </div>
-                        <div style="margin-top:auto; margin-bottom: auto;">
-                            <h4 style="margin-bottom: 5px; margin-top:0; max-height: 40px; overflow:hidden ">Giants and Thieves</h4>
-                            <p class="text-muted">Quantity: 3</p>
-                        </div>
-                        <div style="margin-top:7px; margin-left:auto">
-                            <span class="text-muted">$270 </span>
-                        </div>
-                    </li>
-                    <li class="list-group-item bg-light" style="padding: 20px 10px;">
-                        <p style="display: inline-block; font-weight: 600; margin: 0" class="text-info">Total Price (VND)</p>
-                        <strong class="text-info pull-right">$270</strong>
-                    </li>
-                </ul>
-            </div>
-
-        </div>
+            <ng-container *ngIf="basketTotal$ | async as basketTotal">
+                <strong class="text-info pull-right" style="font-weight: 600;">
+                    {{ basketTotal.total | number: "1.0-0" }}
+                  </strong>
+            </ng-container>
+          
+          </li>
+        </ul>
+      </div>
     </div>
+  </div>
 
-    <div class="panel-footer">
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                <button type="button" class="btn btn-warning" routerLink="/basket">
-                    <i class="fa fa-angle-left"></i> Back to basket
-                </button>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                <button type="button" class="btn btn-success pull-right" routerLink="/checkout-success">
-                    Submit Order <i class="fa fa-angle-right"></i>
-                </button>
-            </div>
-        </div>
+  <div class="panel-footer">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+        <button type="button" class="btn btn-warning" routerLink="/basket">
+          <i class="fa fa-angle-left"></i> Back to basket
+        </button>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+        <button
+          [disabled]="orderForm.invalid"
+          type="submit"
+          class="btn btn-success pull-right"
+          (click)="submitOrder()" 
+        >
+          Submit Order <i class="fa fa-angle-right"></i>
+        </button>
+      </div>
     </div>
+  </div>
 </div>

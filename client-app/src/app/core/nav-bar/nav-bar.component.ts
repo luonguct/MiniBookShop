@@ -21,6 +21,7 @@ export class NavBarComponent implements OnInit {
     this.currentUser$ = this.accountService.currentUser$;
 
     console.log(this.basket$);
+    console.log(this.currentUser$);
   }
 
   logout() {
