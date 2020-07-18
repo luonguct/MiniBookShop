@@ -1,5 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
+  <ItemGroup>
+    <None Include="Data\SeedData\**" CopyToOutputDirectory="PreserveNewest" />
+    <ProjectReference Include="..\MiniShop.Core\MiniShop.Core.csproj"/>
+  </ItemGroup>
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
