@@ -3,11 +3,12 @@ Fictional Book Shop for study purpose
 
 # Technology Stack
 ASP.NET Core 3.1  
-Entity Framework Core 3.1
-GenericRepository + UnitOfWork patern 
-Specification patern 
-Distributed cache
-Angular 9
+Entity Framework Core 3.1 </br>
+GenericRepository  </br>
+UnitOfWork patern </br>
+Specification patern </br>
+Distributed cache </br>
+Angular 9 </br>
 SqlServer 2016
 
 # How to run this Project
