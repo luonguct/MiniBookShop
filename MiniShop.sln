@@ -11,11 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiniShop.Core", "src\MiniSh
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiniShop.Infrastructure", "src\Minishop.Infrastructure\MiniShop.Infrastructure.csproj", "{020FB9A7-AFCD-4B5D-9C15-49A15130E755}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{0DE5FEB8-163C-4712-96B7-DF129C588F29}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E1F9BFED-50B8-458D-A370-B816B2E8193D}"
 	ProjectSection(SolutionItems) = preProject
-		..\..\..\Desktop\basket.png = ..\..\..\Desktop\basket.png
-		..\..\..\Desktop\home-page.png = ..\..\..\Desktop\home-page.png
-		..\..\..\Desktop\register.png = ..\..\..\Desktop\register.png
+		images\basket.png = images\basket.png
+		images\home-page.png = images\home-page.png
+		images\register.png = images\register.png
 	EndProjectSection
 EndProject
 Global
