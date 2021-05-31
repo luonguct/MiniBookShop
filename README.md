@@ -6,7 +6,6 @@ ASP.NET Core 3.1
 Entity Framework Core 3.1 </br>
 GenericRepository  </br>
 UnitOfWork patern </br>
-Specification patern </br>
 Distributed cache </br>
 Angular 9 </br>
 SqlServer 2016
@@ -20,7 +19,6 @@ SqlServer 2016
 6. In client-app folder, open cmd and execute ng serve --open to run client project
 
 # Screen-shot
-
 <img src="/images/home-page.png" width="300" height="150">
 <img src="/images/register.png" width="300" height="150">
 <img src="/images/basket.png" width="300" height="150">
